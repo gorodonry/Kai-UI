@@ -14,6 +14,42 @@
                 <Setter Property="HorizontalAlignment" Value="Center"/>
                 <Setter Property="FontSize" Value="13"/>
             </Style>
+            <Style x:Key="NavigationRailBodyBase" TargetType="StackPanel">
+                <Setter Property="Margin" Value="40"/>
+            </Style>
+            <Style x:Key="NavigationRailBodyKaiImages" TargetType="Image">
+                <Setter Property="Height" Value="200"/>
+                <Setter Property="Width" Value="200"/>
+            </Style>
+            <Style x:Key="NavigationRailBodyKaiText" TargetType="TextBlock">
+                <Setter Property="TextAlignment" Value="Center"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="Margin" Value="0 10 0 0"/>
+            </Style>
+            <Style x:Key="NavigationRailBodyKaiBlock" TargetType="StackPanel">
+                <Setter Property="Width" Value="200"/>
+                <Setter Property="Margin" Value="20"/>
+            </Style>
+            <Style x:Key="VCheckBox" TargetType="CheckBox" BasedOn="{StaticResource MaterialDesignCheckBox}">
+                <Setter Property="IsEnabled" Value="False"/>
+                <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                <Setter Property="Margin" Value="10 0 0 0"/>
+                <Setter Property="Width" Value="90"/>
+                <Setter Property="Content" Value="V Option"/>
+            </Style>
+            <Style x:Key="VGCheckBox" TargetType="CheckBox" BasedOn="{StaticResource MaterialDesignCheckBox}">
+                <Setter Property="IsEnabled" Value="False"/>
+                <Setter Property="HorizontalContentAlignment" Value="Right"/>
+                <Setter Property="Margin" Value="0 0 10 0"/>
+                <Setter Property="Width" Value="90"/>
+                <Setter Property="Content" Value="VG Option"/>
+            </Style>
+            <Style x:Key="ContainsSugarCheckBox" TargetType="CheckBox" BasedOn="{StaticResource MaterialDesignCheckBox}">
+                <Setter Property="IsEnabled" Value="False"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="Margin" Value="0 5 0 0"/>
+                <Setter Property="Content" Value="Contains sugar"/>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </prism:PrismApplication>

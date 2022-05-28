@@ -15,8 +15,9 @@ namespace Kai_UI.Models
         protected bool vGOption;
         protected bool containsSugar;
         protected double price;
+        protected string imageURI;
 
-        public Product(string name, string type, bool vOption, bool vGOption, bool containsSugar, double price)
+        public Product(string name, string type, bool vOption, bool vGOption, bool containsSugar, double price, string imageURI)
         {
             this.name = name;
             this.type = type;
@@ -24,6 +25,7 @@ namespace Kai_UI.Models
             this.vGOption = vGOption;
             this.containsSugar = containsSugar;
             this.price = price;
+            this.imageURI = imageURI;
         }
 
         public string Name
@@ -55,13 +57,18 @@ namespace Kai_UI.Models
         {
             get { return price; }
         }
+
+        public string ImageURI
+        {
+            get { return imageURI; }
+        }
     }
 
     public class SpecialProduct : Product
     {
         protected string dayAvailable;
 
-        public SpecialProduct(string name, string type, bool vOption, bool vGOption, bool containsSugar, double price, string dayAvailable):base(name, type, vOption, vGOption, containsSugar, price)
+        public SpecialProduct(string name, string type, bool vOption, bool vGOption, bool containsSugar, double price, string dayAvailable, string imageURI):base(name, type, vOption, vGOption, containsSugar, price, imageURI)
         {
             this.dayAvailable = dayAvailable;
         }

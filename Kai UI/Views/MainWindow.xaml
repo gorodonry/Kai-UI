@@ -9,7 +9,7 @@
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
         FontFamily="{materialDesign:MaterialDesignFont}"
-        Title="{Binding Title}" Height="550" Width="900" >
+        Title="{Binding Title}" Height="550" Width="950" >
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
@@ -37,65 +37,6 @@
                       SelectedIndex="{Binding DayOfTheSchoolWeek, Mode=OneWayToSource}"
                       materialDesign:HintAssist.Hint="Day of the week">
             </ComboBox>
-            <!-- View order drawer -->
-            <materialDesign:DrawerHost x:Name="ViewOrderDrawer">
-                <materialDesign:DrawerHost.Style>
-                    <Style TargetType="materialDesign:DrawerHost"
-                       BasedOn="{StaticResource {x:Type materialDesign:DrawerHost}}">
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding IsChecked, ElementName=BackgroundToggle}"
-                                     Value="True">
-                                <Setter Property="OverlayBackground"
-                                    Value="{DynamicResource PrimaryHueMidBrush}" />
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </materialDesign:DrawerHost.Style>
-                <materialDesign:DrawerHost.RightDrawerContent>
-                    <Grid Width="200"
-                      Margin="20">
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition Height="auto"/>
-                        </Grid.RowDefinitions>
-                        <!-- User's order so far -->
-                        <StackPanel Grid.Row="0">
-
-                        </StackPanel>
-                        <!-- Button to close the view order drawer, positioned at the bottom of the drawer -->
-                        <Button Grid.Row="1"
-                            Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
-                            CommandParameter="{x:Static Dock.Right}"
-                            Style="{StaticResource MaterialDesignFlatButton}"
-                            HorizontalAlignment="Center"
-                            HorizontalContentAlignment="Center"
-                            VerticalAlignment="Bottom"
-                            Margin="0 0 0 10"
-                            Width="150"
-                            Content="Back"/>
-                    </Grid>
-                </materialDesign:DrawerHost.RightDrawerContent>
-                <!-- Button to open the view order drawer, positioned on the right of the header -->
-                <Button Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
-                    CommandParameter="{x:Static Dock.Right}"
-                    VerticalAlignment="Top"
-                    HorizontalAlignment="Right"
-                    HorizontalContentAlignment="Left"
-                    Background="{DynamicResource PrimaryHueLightBrush}"
-                    Margin="0 19 20 0"
-                    Width="140"
-                    Foreground="Black">
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="MenuOpen"
-                                             Margin="0 0 0 0"
-                                             Width="24"
-                                             Height="24"/>
-                        <TextBlock FontSize="15"
-                               Text="View Order"
-                               Margin="10 2 0 0"/>
-                    </StackPanel>
-                </Button>
-            </materialDesign:DrawerHost>
             <!-- Nav bar down the side with pages to order food and drink from -->
             <materialDesign:Card x:Name="OrderUI"
                                  Grid.Row="1"
@@ -127,6 +68,36 @@
                             </StackPanel>
                         </TabItem.Header>
                         <!-- Sandwiches selection UI -->
+                        <ScrollViewer>
+                            <StackPanel Style="{StaticResource NavigationRailBodyBase}">
+                                <ItemsControl ItemsSource="{Binding Sandwiches, Mode=OneWay}">
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel/>
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Style="{StaticResource NavigationRailBodyKaiBlock}">
+                                                <Image Source="{Binding ImageURI, Mode=OneWay}"
+                                                       Style="{StaticResource NavigationRailBodyKaiImages}"/>
+                                                <TextBlock Text="{Binding Name, Mode=OneWay}"
+                                                           Style="{StaticResource NavigationRailBodyKaiText}"/>
+                                                <StackPanel Orientation="Horizontal"
+                                                            Margin="0 5 0 0">
+                                                    <CheckBox Style="{StaticResource VCheckBox}"
+                                                              IsChecked="{Binding VOption, Mode=OneWay}"/>
+                                                    <CheckBox Style="{StaticResource VGCheckBox}"
+                                                              IsChecked="{Binding VGOption, Mode=OneWay}"/>
+                                                </StackPanel>
+                                                <CheckBox Style="{StaticResource ContainsSugarCheckBox}"
+                                                          IsChecked="{Binding ContainsSugar, Mode=OneWay}"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </StackPanel>
+                        </ScrollViewer>
                     </TabItem>
                     <TabItem>
                         <!-- Sushi navigation icon -->
@@ -142,6 +113,36 @@
                             </StackPanel>
                         </TabItem.Header>
                         <!-- Sushi selection UI -->
+                        <ScrollViewer>
+                            <StackPanel Style="{StaticResource NavigationRailBodyBase}">
+                                <ItemsControl ItemsSource="{Binding Sushi, Mode=OneWay}">
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel/>
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Style="{StaticResource NavigationRailBodyKaiBlock}">
+                                                <Image Source="{Binding ImageURI, Mode=OneWay}"
+                                                       Style="{StaticResource NavigationRailBodyKaiImages}"/>
+                                                <TextBlock Text="{Binding Name, Mode=OneWay}"
+                                                           Style="{StaticResource NavigationRailBodyKaiText}"/>
+                                                <StackPanel Orientation="Horizontal"
+                                                            Margin="0 5 0 0">
+                                                    <CheckBox Style="{StaticResource VCheckBox}"
+                                                              IsChecked="{Binding VOption, Mode=OneWay}"/>
+                                                    <CheckBox Style="{StaticResource VGCheckBox}"
+                                                              IsChecked="{Binding VGOption, Mode=OneWay}"/>
+                                                </StackPanel>
+                                                <CheckBox Style="{StaticResource ContainsSugarCheckBox}"
+                                                          IsChecked="{Binding ContainsSugar, Mode=OneWay}"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </StackPanel>
+                        </ScrollViewer>
                     </TabItem>
                     <TabItem>
                         <!-- Drinks navigation icon -->
@@ -157,6 +158,36 @@
                             </StackPanel>
                         </TabItem.Header>
                         <!-- Drinks selection UI -->
+                        <ScrollViewer>
+                            <StackPanel Style="{StaticResource NavigationRailBodyBase}">
+                                <ItemsControl ItemsSource="{Binding Drinks, Mode=OneWay}">
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel/>
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Style="{StaticResource NavigationRailBodyKaiBlock}">
+                                                <Image Source="{Binding ImageURI, Mode=OneWay}"
+                                                       Style="{StaticResource NavigationRailBodyKaiImages}"/>
+                                                <TextBlock Text="{Binding Name, Mode=OneWay}"
+                                                           Style="{StaticResource NavigationRailBodyKaiText}"/>
+                                                <StackPanel Orientation="Horizontal"
+                                                            Margin="0 5 0 0">
+                                                    <CheckBox Style="{StaticResource VCheckBox}"
+                                                              IsChecked="{Binding VOption, Mode=OneWay}"/>
+                                                    <CheckBox Style="{StaticResource VGCheckBox}"
+                                                              IsChecked="{Binding VGOption, Mode=OneWay}"/>
+                                                </StackPanel>
+                                                <CheckBox Style="{StaticResource ContainsSugarCheckBox}"
+                                                          IsChecked="{Binding ContainsSugar, Mode=OneWay}"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </StackPanel>
+                        </ScrollViewer>
                     </TabItem>
                     <TabItem IsEnabled="{Binding EnableSpecialItemSelection, Mode=OneWay}">
                         <!-- Special items navigation icon -->
@@ -191,6 +222,68 @@
                 </TabControl>
             </materialDesign:Card>
         </Grid>
+        <!-- View order drawer -->
+        <materialDesign:DrawerHost x:Name="ViewOrderDrawer">
+            <materialDesign:DrawerHost.Style>
+                <Style TargetType="materialDesign:DrawerHost"
+                       BasedOn="{StaticResource {x:Type materialDesign:DrawerHost}}">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsChecked, ElementName=BackgroundToggle}"
+                                     Value="True">
+                            <Setter Property="OverlayBackground"
+                                    Value="{DynamicResource PrimaryHueMidBrush}" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </materialDesign:DrawerHost.Style>
+            <materialDesign:DrawerHost.RightDrawerContent>
+                <Grid Width="200"
+                      Margin="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <!-- User's order so far -->
+                    <StackPanel Grid.Row="0"
+                                Width="200">
+                        <TextBlock HorizontalAlignment="Center"
+                                   FontSize="15"
+                                   Text="Your Order"/>
+                    </StackPanel>
+                    <!-- Button to close the view order drawer, positioned at the bottom of the drawer -->
+                    <Button Grid.Row="1"
+                            Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
+                            CommandParameter="{x:Static Dock.Right}"
+                            Style="{StaticResource MaterialDesignFlatButton}"
+                            HorizontalAlignment="Center"
+                            HorizontalContentAlignment="Center"
+                            VerticalAlignment="Bottom"
+                            Margin="0 0 0 10"
+                            Width="150"
+                            Content="Back"/>
+                </Grid>
+            </materialDesign:DrawerHost.RightDrawerContent>
+            <!-- Button to open the view order drawer, positioned on the right of the header -->
+            <Button Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
+                    CommandParameter="{x:Static Dock.Right}"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Right"
+                    HorizontalContentAlignment="Left"
+                    Background="{DynamicResource PrimaryHueLightBrush}"
+                    Margin="0 19 20 0"
+                    Width="140"
+                    Foreground="Black">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="MenuOpen"
+                                             Margin="0 0 0 0"
+                                             Width="24"
+                                             Height="24"/>
+                    <TextBlock FontSize="15"
+                               Text="View Order"
+                               Margin="10 2 0 0"/>
+                </StackPanel>
+            </Button>
+        </materialDesign:DrawerHost>
     </Grid>
 </Window>
  
