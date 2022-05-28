@@ -1,0 +1,31 @@
+C:\Users\Ryan Gordon\Documents\Education\Onslow\Y13\Comp. Science & Programming L3\Doc\Repositories\Kai-UI\Kai UI\bin\Debug\net6.0-windows\Kai UI.exe
+C:\Users\Ryan Gordon\Documents\Education\Onslow\Y13\Comp. Science & Programming L3\Doc\Repositories\Kai-UI\Kai UI\bin\Debug\net6.0-windows\Kai UI.deps.json
+C:\Users\Ryan Gordon\Documents\Education\Onslow\Y13\Comp. Science & Programming L3\Doc\Repositories\Kai-UI\Kai UI\bin\Debug\net6.0-windows\Kai UI.runtimeconfig.json
+C:\Users\Ryan Gordon\Documents\Education\Onslow\Y13\Comp. Science & Programming L3\Doc\Repositories\Kai-UI\Kai UI\bin\Debug\net6.0-windows\Kai UI.dll
+C:\Users\Ryan Gordon\Documents\Education\Onslow\Y13\Comp. Science & Programming L3\Doc\Repositories\Kai-UI\Kai UI\bin\Debug\net6.0-windows\Kai UI.pdb
+C:\Users\Ryan Gordon\Documents\Education\Onslow\Y13\Comp. Science & Programming L3\Doc\Repositories\Kai-UI\Kai UI\bin\Debug\net6.0-windows\MaterialDesignColors.dll
+C:\Users\Ryan Gordon\Documents\Education\Onslow\Y13\Comp. Science & Programming L3\Doc\Repositories\Kai-UI\Kai UI\bin\Debug\net6.0-windows\MaterialDesignThemes.Wpf.dll
+C:\Users\Ryan Gordon\Documents\Education\Onslow\Y13\Comp. Science & Programming L3\Doc\Repositories\Kai-UI\Kai UI\bin\Debug\net6.0-windows\Microsoft.Xaml.Behaviors.dll
+C:\Users\Ryan Gordon\Documents\Education\Onslow\Y13\Comp. Science & Programming L3\Doc\Repositories\Kai-UI\Kai UI\bin\Debug\net6.0-windows\Prism.dll
+C:\Users\Ryan Gordon\Documents\Education\Onslow\Y13\Comp. Science & Programming L3\Doc\Repositories\Kai-UI\Kai UI\bin\Debug\net6.0-windows\Prism.Unity.Wpf.dll
+C:\Users\Ryan Gordon\Documents\Education\Onslow\Y13\Comp. Science & Programming L3\Doc\Repositories\Kai-UI\Kai UI\bin\Debug\net6.0-windows\Prism.Wpf.dll
+C:\Users\Ryan Gordon\Documents\Education\Onslow\Y13\Comp. Science & Programming L3\Doc\Repositories\Kai-UI\Kai UI\bin\Debug\net6.0-windows\Unity.Abstractions.dll
+C:\Users\Ryan Gordon\Documents\Education\Onslow\Y13\Comp. Science & Programming L3\Doc\Repositories\Kai-UI\Kai UI\bin\Debug\net6.0-windows\Unity.Container.dll
+C:\Users\Ryan Gordon\Documents\Education\Onslow\Y13\Comp. Science & Programming L3\Doc\Repositories\Kai-UI\Kai UI\obj\Debug\net6.0-windows\Kai UI.csproj.AssemblyReference.cache
+C:\Users\Ryan Gordon\Documents\Education\Onslow\Y13\Comp. Science & Programming L3\Doc\Repositories\Kai-UI\Kai UI\obj\Debug\net6.0-windows\Views\MainWindow.baml
+C:\Users\Ryan Gordon\Documents\Education\Onslow\Y13\Comp. Science & Programming L3\Doc\Repositories\Kai-UI\Kai UI\obj\Debug\net6.0-windows\Views\MainWindow.g.cs
+C:\Users\Ryan Gordon\Documents\Education\Onslow\Y13\Comp. Science & Programming L3\Doc\Repositories\Kai-UI\Kai UI\obj\Debug\net6.0-windows\App.g.cs
+C:\Users\Ryan Gordon\Documents\Education\Onslow\Y13\Comp. Science & Programming L3\Doc\Repositories\Kai-UI\Kai UI\obj\Debug\net6.0-windows\Kai UI_MarkupCompile.cache
+C:\Users\Ryan Gordon\Documents\Education\Onslow\Y13\Comp. Science & Programming L3\Doc\Repositories\Kai-UI\Kai UI\obj\Debug\net6.0-windows\Kai UI_MarkupCompile.lref
+C:\Users\Ryan Gordon\Documents\Education\Onslow\Y13\Comp. Science & Programming L3\Doc\Repositories\Kai-UI\Kai UI\obj\Debug\net6.0-windows\App.baml
+C:\Users\Ryan Gordon\Documents\Education\Onslow\Y13\Comp. Science & Programming L3\Doc\Repositories\Kai-UI\Kai UI\obj\Debug\net6.0-windows\Kai UI.g.resources
+C:\Users\Ryan Gordon\Documents\Education\Onslow\Y13\Comp. Science & Programming L3\Doc\Repositories\Kai-UI\Kai UI\obj\Debug\net6.0-windows\Kai UI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ryan Gordon\Documents\Education\Onslow\Y13\Comp. Science & Programming L3\Doc\Repositories\Kai-UI\Kai UI\obj\Debug\net6.0-windows\Kai UI.AssemblyInfoInputs.cache
+C:\Users\Ryan Gordon\Documents\Education\Onslow\Y13\Comp. Science & Programming L3\Doc\Repositories\Kai-UI\Kai UI\obj\Debug\net6.0-windows\Kai UI.AssemblyInfo.cs
+C:\Users\Ryan Gordon\Documents\Education\Onslow\Y13\Comp. Science & Programming L3\Doc\Repositories\Kai-UI\Kai UI\obj\Debug\net6.0-windows\Kai UI.csproj.CoreCompileInputs.cache
+C:\Users\Ryan Gordon\Documents\Education\Onslow\Y13\Comp. Science & Programming L3\Doc\Repositories\Kai-UI\Kai UI\obj\Debug\net6.0-windows\Kai UI.csproj.CopyComplete
+C:\Users\Ryan Gordon\Documents\Education\Onslow\Y13\Comp. Science & Programming L3\Doc\Repositories\Kai-UI\Kai UI\obj\Debug\net6.0-windows\Kai UI.dll
+C:\Users\Ryan Gordon\Documents\Education\Onslow\Y13\Comp. Science & Programming L3\Doc\Repositories\Kai-UI\Kai UI\obj\Debug\net6.0-windows\refint\Kai UI.dll
+C:\Users\Ryan Gordon\Documents\Education\Onslow\Y13\Comp. Science & Programming L3\Doc\Repositories\Kai-UI\Kai UI\obj\Debug\net6.0-windows\Kai UI.pdb
+C:\Users\Ryan Gordon\Documents\Education\Onslow\Y13\Comp. Science & Programming L3\Doc\Repositories\Kai-UI\Kai UI\obj\Debug\net6.0-windows\Kai UI.genruntimeconfig.cache
+C:\Users\Ryan Gordon\Documents\Education\Onslow\Y13\Comp. Science & Programming L3\Doc\Repositories\Kai-UI\Kai UI\obj\Debug\net6.0-windows\ref\Kai UI.dll

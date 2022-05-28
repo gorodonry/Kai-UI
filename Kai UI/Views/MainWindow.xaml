@@ -1,0 +1,196 @@
+﻿<Window x:Class="Kai_UI.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:prism="http://prismlibrary.com/"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="{materialDesign:MaterialDesignFont}"
+        Title="{Binding Title}" Height="550" Width="900" >
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <!-- OC Cafe header at the top of every UI -->
+            <materialDesign:ColorZone Mode="PrimaryLight"
+                                      Grid.Row="0"
+                                      Grid.Column="0"
+                                      CornerRadius="4"
+                                      Margin="7">
+                <TextBlock Text="OC Cafe"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Margin="0 10 0 10"
+                           FontSize="30"/>
+            </materialDesign:ColorZone>
+            <!-- Day selector, positioned on the left of the header -->
+            <ComboBox x:Name="DaySelector"
+                      HorizontalAlignment="Left"
+                      Width="150"
+                      Margin="30 0 0 0"
+                      ItemsSource="{Binding DaysOfTheSchoolWeek, Mode=OneWay}"
+                      SelectedIndex="{Binding DayOfTheSchoolWeek, Mode=OneWayToSource}"
+                      materialDesign:HintAssist.Hint="Day of the week">
+            </ComboBox>
+            <!-- View order drawer -->
+            <materialDesign:DrawerHost x:Name="ViewOrderDrawer">
+                <materialDesign:DrawerHost.Style>
+                    <Style TargetType="materialDesign:DrawerHost"
+                       BasedOn="{StaticResource {x:Type materialDesign:DrawerHost}}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsChecked, ElementName=BackgroundToggle}"
+                                     Value="True">
+                                <Setter Property="OverlayBackground"
+                                    Value="{DynamicResource PrimaryHueMidBrush}" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </materialDesign:DrawerHost.Style>
+                <materialDesign:DrawerHost.RightDrawerContent>
+                    <Grid Width="200"
+                      Margin="20">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <!-- User's order so far -->
+                        <StackPanel Grid.Row="0">
+
+                        </StackPanel>
+                        <!-- Button to close the view order drawer, positioned at the bottom of the drawer -->
+                        <Button Grid.Row="1"
+                            Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
+                            CommandParameter="{x:Static Dock.Right}"
+                            Style="{StaticResource MaterialDesignFlatButton}"
+                            HorizontalAlignment="Center"
+                            HorizontalContentAlignment="Center"
+                            VerticalAlignment="Bottom"
+                            Margin="0 0 0 10"
+                            Width="150"
+                            Content="Back"/>
+                    </Grid>
+                </materialDesign:DrawerHost.RightDrawerContent>
+                <!-- Button to open the view order drawer, positioned on the right of the header -->
+                <Button Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
+                    CommandParameter="{x:Static Dock.Right}"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Right"
+                    HorizontalContentAlignment="Left"
+                    Background="{DynamicResource PrimaryHueLightBrush}"
+                    Margin="0 19 20 0"
+                    Width="140"
+                    Foreground="Black">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="MenuOpen"
+                                             Margin="0 0 0 0"
+                                             Width="24"
+                                             Height="24"/>
+                        <TextBlock FontSize="15"
+                               Text="View Order"
+                               Margin="10 2 0 0"/>
+                    </StackPanel>
+                </Button>
+            </materialDesign:DrawerHost>
+            <!-- Nav bar down the side with pages to order food and drink from -->
+            <materialDesign:Card x:Name="OrderUI"
+                                 Grid.Row="1"
+                                 Grid.Column="0"
+                                 Margin="0 0 0 0">
+                <TabControl materialDesign:NavigationRailAssist.ShowSelectionBackground="True"
+                            SnapsToDevicePixels="True"
+                            Style="{StaticResource MaterialDesignNavigationRailTabControl}"
+                            TabStripPlacement="Left">
+                    <materialDesign:NavigationRailAssist.FloatingContent>
+                        <TextBlock HorizontalAlignment="Center"
+                                   TextAlignment="Center"
+                                   FontSize="20"
+                                   Margin="0 10 0 20"
+                                   Width="auto"
+                                   Text="Menu"/>
+                    </materialDesign:NavigationRailAssist.FloatingContent>
+                    <TabItem>
+                        <!-- Sandwiches navigation icon -->
+                        <TabItem.Header>
+                            <StackPanel Width="auto"
+                                        Height="auto">
+                                <materialDesign:PackIcon Width="30"
+                                                         Height="30"
+                                                         Kind="FoodCroissant"
+                                                         HorizontalAlignment="Center"/>
+                                <TextBlock Style="{StaticResource NavigationRailHeaderTextBlock}"
+                                           Text="Sandwiches"/>
+                            </StackPanel>
+                        </TabItem.Header>
+                        <!-- Sandwiches selection UI -->
+                    </TabItem>
+                    <TabItem>
+                        <!-- Sushi navigation icon -->
+                        <TabItem.Header>
+                            <StackPanel Width="auto"
+                                        Height="auto">
+                                <materialDesign:PackIcon Width="30"
+                                                         Height="30"
+                                                         Kind="Rice"
+                                                         HorizontalAlignment="Center"/>
+                                <TextBlock Style="{StaticResource NavigationRailHeaderTextBlock}"
+                                           Text="Sushi"/>
+                            </StackPanel>
+                        </TabItem.Header>
+                        <!-- Sushi selection UI -->
+                    </TabItem>
+                    <TabItem>
+                        <!-- Drinks navigation icon -->
+                        <TabItem.Header>
+                            <StackPanel Width="auto"
+                                        Height="auto">
+                                <materialDesign:PackIcon Width="30"
+                                                         Height="30"
+                                                         Kind="Cup"
+                                                         HorizontalAlignment="Center"/>
+                                <TextBlock Style="{StaticResource NavigationRailHeaderTextBlock}"
+                                           Text="Drinks"/>
+                            </StackPanel>
+                        </TabItem.Header>
+                        <!-- Drinks selection UI -->
+                    </TabItem>
+                    <TabItem IsEnabled="{Binding EnableSpecialItemSelection, Mode=OneWay}">
+                        <!-- Special items navigation icon -->
+                        <TabItem.Header>
+                            <StackPanel Width="auto"
+                                        Height="auto">
+                                <materialDesign:PackIcon Width="30"
+                                                         Height="30"
+                                                         Kind="CalendarToday"
+                                                         HorizontalAlignment="Center"/>
+                                <TextBlock Style="{StaticResource NavigationRailHeaderTextBlock}"
+                                           Text="{Binding DayOfTheSchoolWeekName, Mode=OneWay}"/>
+                            </StackPanel>
+                        </TabItem.Header>
+                        <!-- Special items selection UI -->
+                    </TabItem>
+                    <TabItem>
+                        <!-- Cart navigation icon -->
+                        <TabItem.Header>
+                            <StackPanel Width="auto"
+                                        Height="auto">
+                                <materialDesign:PackIcon Width="30"
+                                                         Height="30"
+                                                         Kind="CartVariant"
+                                                         HorizontalAlignment="Center"/>
+                                <TextBlock Style="{StaticResource NavigationRailHeaderTextBlock}"
+                                           Text="Cart"/>
+                            </StackPanel>
+                        </TabItem.Header>
+                        <!-- Cart UI -->
+                    </TabItem>
+                </TabControl>
+            </materialDesign:Card>
+        </Grid>
+    </Grid>
+</Window>
+ 
