@@ -22,7 +22,7 @@ namespace Kai_UI.ViewModels
             "Monday",
             "Tuesday",
             "Wednesday",
-            "Thrusday",
+            "Thursday",
             "Friday"
         };
 
@@ -96,6 +96,7 @@ namespace Kai_UI.ViewModels
                 SetProperty(ref _dayOfTheSchoolWeek, value);
                 RaisePropertyChanged("DayOfTheSchoolWeekName");
                 RaisePropertyChanged("EnableSpecialItemSelection");
+                RaisePropertyChanged("TodaysSpecialProducts");
             }
         }
 
@@ -121,6 +122,33 @@ namespace Kai_UI.ViewModels
                 {
                     EnableSpecialItemSelection = false;
                     return "Daily";
+                }
+            }
+        }
+
+        public List<SpecialProduct> TodaysSpecialProducts
+        {
+            get
+            {
+                string day = DayOfTheSchoolWeekName;
+                
+                if (day != "Daily")
+                {
+                    List<SpecialProduct> todaysSpecialProducts = new();
+
+                    foreach (SpecialProduct product in SpecialProducts)
+                    {
+                        if (product.DayAvailable == day.ToLower())
+                        {
+                            todaysSpecialProducts.Add(product);
+                        }
+                    }
+
+                    return todaysSpecialProducts;
+                }
+                else
+                {
+                    return new List<SpecialProduct>();
                 }
             }
         }

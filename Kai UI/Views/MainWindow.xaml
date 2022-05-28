@@ -203,6 +203,36 @@
                             </StackPanel>
                         </TabItem.Header>
                         <!-- Special items selection UI -->
+                        <ScrollViewer>
+                            <StackPanel Style="{StaticResource NavigationRailBodyBase}">
+                                <ItemsControl ItemsSource="{Binding TodaysSpecialProducts, Mode=OneWay}">
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel/>
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Style="{StaticResource NavigationRailBodyKaiBlock}">
+                                                <Image Source="{Binding ImageURI, Mode=OneWay}"
+                                                       Style="{StaticResource NavigationRailBodyKaiImages}"/>
+                                                <TextBlock Text="{Binding Name, Mode=OneWay}"
+                                                           Style="{StaticResource NavigationRailBodyKaiText}"/>
+                                                <StackPanel Orientation="Horizontal"
+                                                            Margin="0 5 0 0">
+                                                    <CheckBox Style="{StaticResource VCheckBox}"
+                                                              IsChecked="{Binding VOption, Mode=OneWay}"/>
+                                                    <CheckBox Style="{StaticResource VGCheckBox}"
+                                                              IsChecked="{Binding VGOption, Mode=OneWay}"/>
+                                                </StackPanel>
+                                                <CheckBox Style="{StaticResource ContainsSugarCheckBox}"
+                                                          IsChecked="{Binding ContainsSugar, Mode=OneWay}"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </StackPanel>
+                        </ScrollViewer>
                     </TabItem>
                     <TabItem>
                         <!-- Cart navigation icon -->
