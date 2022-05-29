@@ -83,8 +83,7 @@
                                                        Style="{StaticResource NavigationRailBodyKaiImages}"/>
                                                 <TextBlock Text="{Binding Name, Mode=OneWay}"
                                                            Style="{StaticResource NavigationRailBodyKaiText}"/>
-                                                <StackPanel Orientation="Horizontal"
-                                                            Margin="0 5 0 0">
+                                                <StackPanel Style="{StaticResource NavigationRailBodyKaiInnerBlock}">
                                                     <CheckBox Style="{StaticResource VCheckBox}"
                                                               IsChecked="{Binding VOption, Mode=OneWay}"/>
                                                     <CheckBox Style="{StaticResource VGCheckBox}"
@@ -92,22 +91,14 @@
                                                 </StackPanel>
                                                 <CheckBox Style="{StaticResource ContainsSugarCheckBox}"
                                                           IsChecked="{Binding ContainsSugar, Mode=OneWay}"/>
-                                                <StackPanel Orientation="Horizontal"
-                                                            Margin="0 5 0 0">
-                                                    <TextBlock Text="Order"
-                                                               VerticalAlignment="Center"
-                                                               Margin="20 0 10 0"/>
-                                                    <Button Style="{StaticResource MaterialDesignFlatLightButton}"
-                                                            Command="{Binding DecrementOrder, BindsDirectlyToSource=True}"
-                                                            FontSize="20"
-                                                            Content="-"/>
+                                                <StackPanel Style="{StaticResource NavigationRailBodyKaiInnerBlock}">
+                                                    <TextBlock Style="{StaticResource NavigationRailBodyOrderPromptTextBlock}"/>
+                                                    <Button Style="{StaticResource NavigationRailBodyOrderDecrement}"
+                                                            Command="{Binding DecrementOrder}"/>
                                                     <TextBlock Text="{Binding NoOrdered, Mode=OneWay}"
-                                                               VerticalAlignment="Center"
-                                                               Margin="10 0 10 0"/>
-                                                    <Button Style="{StaticResource MaterialDesignFlatLightButton}"
-                                                            Command="{Binding IncrementOrder, BindsDirectlyToSource=True}"
-                                                            FontSize="20"
-                                                            Content="+"/>
+                                                               Style="{StaticResource NavigationRailBodyOrderTextBlock}"/>
+                                                    <Button Style="{StaticResource NavigationRailBodyOrderIncrement}"
+                                                            Command="{Binding IncrementOrder}"/>
                                                 </StackPanel>
                                             </StackPanel>
                                         </DataTemplate>
@@ -145,8 +136,7 @@
                                                        Style="{StaticResource NavigationRailBodyKaiImages}"/>
                                                 <TextBlock Text="{Binding Name, Mode=OneWay}"
                                                            Style="{StaticResource NavigationRailBodyKaiText}"/>
-                                                <StackPanel Orientation="Horizontal"
-                                                            Margin="0 5 0 0">
+                                                <StackPanel Style="{StaticResource NavigationRailBodyKaiInnerBlock}">
                                                     <CheckBox Style="{StaticResource VCheckBox}"
                                                               IsChecked="{Binding VOption, Mode=OneWay}"/>
                                                     <CheckBox Style="{StaticResource VGCheckBox}"
@@ -154,6 +144,15 @@
                                                 </StackPanel>
                                                 <CheckBox Style="{StaticResource ContainsSugarCheckBox}"
                                                           IsChecked="{Binding ContainsSugar, Mode=OneWay}"/>
+                                                <StackPanel Style="{StaticResource NavigationRailBodyKaiInnerBlock}">
+                                                    <TextBlock Style="{StaticResource NavigationRailBodyOrderPromptTextBlock}"/>
+                                                    <Button Style="{StaticResource NavigationRailBodyOrderDecrement}"
+                                                            Command="{Binding DecrementOrder}"/>
+                                                    <TextBlock Text="{Binding NoOrdered, Mode=OneWay}"
+                                                               Style="{StaticResource NavigationRailBodyOrderTextBlock}"/>
+                                                    <Button Style="{StaticResource NavigationRailBodyOrderIncrement}"
+                                                            Command="{Binding IncrementOrder}"/>
+                                                </StackPanel>
                                             </StackPanel>
                                         </DataTemplate>
                                     </ItemsControl.ItemTemplate>
@@ -190,8 +189,7 @@
                                                        Style="{StaticResource NavigationRailBodyKaiImages}"/>
                                                 <TextBlock Text="{Binding Name, Mode=OneWay}"
                                                            Style="{StaticResource NavigationRailBodyKaiText}"/>
-                                                <StackPanel Orientation="Horizontal"
-                                                            Margin="0 5 0 0">
+                                                <StackPanel Style="{StaticResource NavigationRailBodyKaiInnerBlock}">
                                                     <CheckBox Style="{StaticResource VCheckBox}"
                                                               IsChecked="{Binding VOption, Mode=OneWay}"/>
                                                     <CheckBox Style="{StaticResource VGCheckBox}"
@@ -199,6 +197,15 @@
                                                 </StackPanel>
                                                 <CheckBox Style="{StaticResource ContainsSugarCheckBox}"
                                                           IsChecked="{Binding ContainsSugar, Mode=OneWay}"/>
+                                                <StackPanel Style="{StaticResource NavigationRailBodyKaiInnerBlock}">
+                                                    <TextBlock Style="{StaticResource NavigationRailBodyOrderPromptTextBlock}"/>
+                                                    <Button Style="{StaticResource NavigationRailBodyOrderDecrement}"
+                                                            Command="{Binding DecrementOrder}"/>
+                                                    <TextBlock Text="{Binding NoOrdered, Mode=OneWay}"
+                                                               Style="{StaticResource NavigationRailBodyOrderTextBlock}"/>
+                                                    <Button Style="{StaticResource NavigationRailBodyOrderIncrement}"
+                                                            Command="{Binding IncrementOrder}"/>
+                                                </StackPanel>
                                             </StackPanel>
                                         </DataTemplate>
                                     </ItemsControl.ItemTemplate>
@@ -235,8 +242,7 @@
                                                        Style="{StaticResource NavigationRailBodyKaiImages}"/>
                                                 <TextBlock Text="{Binding Name, Mode=OneWay}"
                                                            Style="{StaticResource NavigationRailBodyKaiText}"/>
-                                                <StackPanel Orientation="Horizontal"
-                                                            Margin="0 5 0 0">
+                                                <StackPanel Style="{StaticResource NavigationRailBodyKaiInnerBlock}">
                                                     <CheckBox Style="{StaticResource VCheckBox}"
                                                               IsChecked="{Binding VOption, Mode=OneWay}"/>
                                                     <CheckBox Style="{StaticResource VGCheckBox}"
@@ -244,6 +250,15 @@
                                                 </StackPanel>
                                                 <CheckBox Style="{StaticResource ContainsSugarCheckBox}"
                                                           IsChecked="{Binding ContainsSugar, Mode=OneWay}"/>
+                                                <StackPanel Style="{StaticResource NavigationRailBodyKaiInnerBlock}">
+                                                    <TextBlock Style="{StaticResource NavigationRailBodyOrderPromptTextBlock}"/>
+                                                    <Button Style="{StaticResource NavigationRailBodyOrderDecrement}"
+                                                            Command="{Binding DecrementOrder}"/>
+                                                    <TextBlock Text="{Binding NoOrdered, Mode=OneWay}"
+                                                               Style="{StaticResource NavigationRailBodyOrderTextBlock}"/>
+                                                    <Button Style="{StaticResource NavigationRailBodyOrderIncrement}"
+                                                            Command="{Binding IncrementOrder}"/>
+                                                </StackPanel>
                                             </StackPanel>
                                         </DataTemplate>
                                     </ItemsControl.ItemTemplate>

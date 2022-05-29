@@ -98,6 +98,14 @@ namespace Kai_UI.ViewModels
             set
             { 
                 SetProperty(ref _dayOfTheSchoolWeek, value);
+
+                // Reset the number of ordered items for each special item if the day changes
+                for (int i=0; i<SpecialProducts.Count(); i++)
+                {
+                    SpecialProducts[i].NoOrdered = 0;
+                }
+
+                // Alert relevant views to the change
                 RaisePropertyChanged(nameof(DayOfTheSchoolWeekName));
                 RaisePropertyChanged(nameof(EnableSpecialItemSelection));
                 RaisePropertyChanged(nameof(TodaysSpecialProducts));

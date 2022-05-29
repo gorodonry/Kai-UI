@@ -31,6 +31,10 @@
                 <Setter Property="Width" Value="200"/>
                 <Setter Property="Margin" Value="20"/>
             </Style>
+            <Style x:Key="NavigationRailBodyKaiInnerBlock" TargetType="StackPanel">
+                <Setter Property="Orientation" Value="Horizontal"/>
+                <Setter Property="Margin" Value="0 5 0 0"/>
+            </Style>
             <Style x:Key="VCheckBox" TargetType="CheckBox" BasedOn="{StaticResource MaterialDesignCheckBox}">
                 <Setter Property="IsEnabled" Value="False"/>
                 <Setter Property="HorizontalContentAlignment" Value="Left"/>
@@ -50,6 +54,23 @@
                 <Setter Property="HorizontalAlignment" Value="Center"/>
                 <Setter Property="Margin" Value="0 5 0 0"/>
                 <Setter Property="Content" Value="Contains sugar"/>
+            </Style>
+            <Style x:Key="NavigationRailBodyOrderPromptTextBlock" TargetType="TextBlock">
+                <Setter Property="Text" Value="Order"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="Margin" Value="20 0 10 0"/>
+            </Style>
+            <Style x:Key="NavigationRailBodyOrderTextBlock" TargetType="TextBlock">
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="Margin" Value="10 0 10 0"/>
+            </Style>
+            <Style x:Key="NavigationRailBodyOrderIncrement" TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatLightButton}">
+                <Setter Property="Content" Value="+"/>
+                <Setter Property="FontSize" Value="20"/>
+            </Style>
+            <Style x:Key="NavigationRailBodyOrderDecrement" TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatLightButton}">
+                <Setter Property="Content" Value="-"/>
+                <Setter Property="FontSize" Value="20"/>
             </Style>
         </ResourceDictionary>
     </Application.Resources>
