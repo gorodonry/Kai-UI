@@ -1,4 +1,5 @@
 ﻿using Kai_UI.Models;
+using Prism.Commands;
 using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
@@ -31,7 +32,7 @@ namespace Kai_UI.ViewModels
             get { return daysOfTheSchoolWeek; }
         }
 
-        private List<Product> sandwiches = new()
+        private ObservableCollection<Product> sandwiches = new()
         {
             new Product("Ham & egg sandwich", "sandwich", false, false, false, 3.5, "/Images/ham_and_egg_sandwich.jpg"),
             new Product("Chicken mayo sandwich", "sandwich", false, false, false, 3.5, "/Images/chicken_mayo_sandwich.jpg"),
@@ -40,12 +41,13 @@ namespace Kai_UI.ViewModels
             new Product("Salad sandwich", "sandwich", true, true, false, 3.2, "/Images/salad_sandwich.jpg")
         };
 
-        public List<Product> Sandwiches
+        public ObservableCollection<Product> Sandwiches
         {
             get { return sandwiches; }
+            set { SetProperty(ref sandwiches, value); }
         }
 
-        private List<Product> sushi = new()
+        private ObservableCollection<Product> sushi = new()
         {
             new Product("Chicken (3pc)", "sushi", false, false, false, 4.5, "/Images/chicken_sushi.jpg"),
             new Product("Tuna (3pc)", "sushi", false, false, false, 4.5, "/Images/tuna_sushi.jpg"),
@@ -54,12 +56,13 @@ namespace Kai_UI.ViewModels
             new Product("Vegetarian rice bowl", "sushi", true, true, false, 5.5, "/Images/vegetarian_rice_bowl.jpg")
         };
 
-        public List<Product> Sushi
+        public ObservableCollection<Product> Sushi
         {
             get { return sushi; }
+            set { SetProperty(ref sushi, value); }
         }
 
-        private List<Product> drinks = new()
+        private ObservableCollection<Product> drinks = new()
         {
             new Product("Soda can", "drink", true, true, true, 2, "/Images/soda_can.jpg"),
             new Product("Aloe vera drink", "drink", true, false, true, 3.5, "/Images/aloe_vera_drink.jpg"),
@@ -68,12 +71,13 @@ namespace Kai_UI.ViewModels
             new Product("Instant hot chocolate", "drink", true, false, true, 1.5, "/Images/instant_hot_chocolate.jpg")
         };
 
-        public List<Product> Drinks
+        public ObservableCollection<Product> Drinks
         {
             get { return drinks; }
+            set { SetProperty(ref drinks, value); }
         }
 
-        private List<SpecialProduct> specialProducts = new()
+        private ObservableCollection<SpecialProduct> specialProducts = new()
         {
             new SpecialProduct("Kale moa", "special", false, false, true, 6, "monday", "/Images/kale_moa.jpg"),
             new SpecialProduct("Potjiekos", "special", false, false, false, 6, "tuesday", "/Images/potjiekos.jpg"),
@@ -82,9 +86,10 @@ namespace Kai_UI.ViewModels
             new SpecialProduct("Chow mein", "special", true, true, false, 6, "friday", "/Images/chow_mein.jpg")
         };
 
-        public List<SpecialProduct> SpecialProducts
+        public ObservableCollection<SpecialProduct> SpecialProducts
         {
             get { return specialProducts; }
+            set { SetProperty(ref specialProducts, value); }
         }
 
         private string _dayOfTheSchoolWeek = string.Empty;
@@ -94,9 +99,9 @@ namespace Kai_UI.ViewModels
             set
             { 
                 SetProperty(ref _dayOfTheSchoolWeek, value);
-                RaisePropertyChanged("DayOfTheSchoolWeekName");
-                RaisePropertyChanged("EnableSpecialItemSelection");
-                RaisePropertyChanged("TodaysSpecialProducts");
+                RaisePropertyChanged(nameof(DayOfTheSchoolWeekName));
+                RaisePropertyChanged(nameof(EnableSpecialItemSelection));
+                RaisePropertyChanged(nameof(TodaysSpecialProducts));
             }
         }
 
@@ -126,7 +131,7 @@ namespace Kai_UI.ViewModels
             }
         }
 
-        public List<SpecialProduct> TodaysSpecialProducts
+        public ObservableCollection<SpecialProduct> TodaysSpecialProducts
         {
             get
             {
@@ -134,7 +139,7 @@ namespace Kai_UI.ViewModels
                 
                 if (day != "Daily")
                 {
-                    List<SpecialProduct> todaysSpecialProducts = new();
+                    ObservableCollection<SpecialProduct> todaysSpecialProducts = new();
 
                     foreach (SpecialProduct product in SpecialProducts)
                     {
@@ -148,8 +153,43 @@ namespace Kai_UI.ViewModels
                 }
                 else
                 {
-                    return new List<SpecialProduct>();
+                    return new ObservableCollection<SpecialProduct>();
                 }
+            }
+        }
+
+        private DelegateCommand _incrementOrder;
+        public DelegateCommand IncrementOrder =>
+            _incrementOrder ?? (_incrementOrder = new DelegateCommand(ExecuteIncrementOrder, CanExecuteIncrementOrder));
+
+        void ExecuteIncrementOrder()
+        {
+            NoOrdered++;
+        }
+
+        bool CanExecuteIncrementOrder()
+        {
+            return true;
+        }
+
+        private DelegateCommand _decrementOrder;
+        public DelegateCommand DecrementOrder =>
+            _decrementOrder ?? (_decrementOrder = new DelegateCommand(ExecuteDecrementOrder, CanExecuteDecrementOrder));
+
+        void ExecuteDecrementOrder()
+        {
+            NoOrdered--;
+        }
+
+        bool CanExecuteDecrementOrder()
+        {
+            if (NoOrdered == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
             }
         }
 

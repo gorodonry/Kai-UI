@@ -92,6 +92,22 @@
                                                 </StackPanel>
                                                 <CheckBox Style="{StaticResource ContainsSugarCheckBox}"
                                                           IsChecked="{Binding ContainsSugar, Mode=OneWay}"/>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock Text="Order"
+                                                               VerticalAlignment="Center"
+                                                               Margin="20 0 10 0"/>
+                                                    <Button Style="{StaticResource MaterialDesignFlatLightButton}"
+                                                            Command="{Binding DecrementOrder}"
+                                                            FontSize="20"
+                                                            Content="-"/>
+                                                    <TextBlock Text="{Binding NoOrdered, Mode=OneWay}"
+                                                               VerticalAlignment="Center"
+                                                               Margin="10 0 10 0"/>
+                                                    <Button Style="{StaticResource MaterialDesignFlatLightButton}"
+                                                            Command="{Binding IncrementOrder}"
+                                                            FontSize="20"
+                                                            Content="+"/>
+                                                </StackPanel>
                                             </StackPanel>
                                         </DataTemplate>
                                     </ItemsControl.ItemTemplate>

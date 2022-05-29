@@ -1,9 +1,12 @@
-﻿using Prism.Mvvm;
+﻿using Prism.Commands;
+using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Kai_UI.Models
 {
@@ -15,6 +18,7 @@ namespace Kai_UI.Models
         protected bool vGOption;
         protected bool containsSugar;
         protected double price;
+        protected int noOrdered = 0;
         protected string imageURI;
 
         public Product(string name, string type, bool vOption, bool vGOption, bool containsSugar, double price, string imageURI)
@@ -56,6 +60,12 @@ namespace Kai_UI.Models
         public double Price
         {
             get { return price; }
+        }
+
+        public int NoOrdered
+        {
+            get { return noOrdered; }
+            set { noOrdered = value; }
         }
 
         public string ImageURI

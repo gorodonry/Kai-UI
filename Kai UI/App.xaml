@@ -20,6 +20,7 @@
             <Style x:Key="NavigationRailBodyKaiImages" TargetType="Image">
                 <Setter Property="Height" Value="200"/>
                 <Setter Property="Width" Value="200"/>
+                <Setter Property="SnapsToDevicePixels" Value="True"/>
             </Style>
             <Style x:Key="NavigationRailBodyKaiText" TargetType="TextBlock">
                 <Setter Property="TextAlignment" Value="Center"/>
