@@ -65,12 +65,53 @@ namespace Kai_UI.Models
         public int NoOrdered
         {
             get { return noOrdered; }
-            set { noOrdered = value; }
+            set
+            {
+                noOrdered = value;
+                RaisePropertyChanged(nameof(NoOrdered));
+            }
         }
 
         public string ImageURI
         {
             get { return imageURI; }
+        }
+
+        private DelegateCommand _incrementOrder;
+        public DelegateCommand IncrementOrder =>
+            _incrementOrder ?? (_incrementOrder = new DelegateCommand(ExecuteIncrementOrder, CanExecuteIncrementOrder));
+
+        void ExecuteIncrementOrder()
+        {
+            NoOrdered++;
+            DecrementOrder.RaiseCanExecuteChanged();
+        }
+
+        bool CanExecuteIncrementOrder()
+        {
+            return true;
+        }
+
+        private DelegateCommand _decrementOrder;
+        public DelegateCommand DecrementOrder =>
+            _decrementOrder ?? (_decrementOrder = new DelegateCommand(ExecuteDecrementOrder, CanExecuteDecrementOrder));
+
+        void ExecuteDecrementOrder()
+        {
+            NoOrdered--;
+            DecrementOrder.RaiseCanExecuteChanged();
+        }
+
+        bool CanExecuteDecrementOrder()
+        {
+            if (NoOrdered == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 

@@ -1,5 +1,4 @@
 ﻿using Kai_UI.Models;
-using Prism.Commands;
 using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
@@ -155,41 +154,6 @@ namespace Kai_UI.ViewModels
                 {
                     return new ObservableCollection<SpecialProduct>();
                 }
-            }
-        }
-
-        private DelegateCommand _incrementOrder;
-        public DelegateCommand IncrementOrder =>
-            _incrementOrder ?? (_incrementOrder = new DelegateCommand(ExecuteIncrementOrder, CanExecuteIncrementOrder));
-
-        void ExecuteIncrementOrder()
-        {
-            NoOrdered++;
-        }
-
-        bool CanExecuteIncrementOrder()
-        {
-            return true;
-        }
-
-        private DelegateCommand _decrementOrder;
-        public DelegateCommand DecrementOrder =>
-            _decrementOrder ?? (_decrementOrder = new DelegateCommand(ExecuteDecrementOrder, CanExecuteDecrementOrder));
-
-        void ExecuteDecrementOrder()
-        {
-            NoOrdered--;
-        }
-
-        bool CanExecuteDecrementOrder()
-        {
-            if (NoOrdered == 0)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
             }
         }
 

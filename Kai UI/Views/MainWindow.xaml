@@ -92,19 +92,20 @@
                                                 </StackPanel>
                                                 <CheckBox Style="{StaticResource ContainsSugarCheckBox}"
                                                           IsChecked="{Binding ContainsSugar, Mode=OneWay}"/>
-                                                <StackPanel Orientation="Horizontal">
+                                                <StackPanel Orientation="Horizontal"
+                                                            Margin="0 5 0 0">
                                                     <TextBlock Text="Order"
                                                                VerticalAlignment="Center"
                                                                Margin="20 0 10 0"/>
                                                     <Button Style="{StaticResource MaterialDesignFlatLightButton}"
-                                                            Command="{Binding DecrementOrder}"
+                                                            Command="{Binding DecrementOrder, BindsDirectlyToSource=True}"
                                                             FontSize="20"
                                                             Content="-"/>
                                                     <TextBlock Text="{Binding NoOrdered, Mode=OneWay}"
                                                                VerticalAlignment="Center"
                                                                Margin="10 0 10 0"/>
                                                     <Button Style="{StaticResource MaterialDesignFlatLightButton}"
-                                                            Command="{Binding IncrementOrder}"
+                                                            Command="{Binding IncrementOrder, BindsDirectlyToSource=True}"
                                                             FontSize="20"
                                                             Content="+"/>
                                                 </StackPanel>
