@@ -10,6 +10,9 @@
         TextElement.FontSize="14"
         FontFamily="{materialDesign:MaterialDesignFont}"
         Title="{Binding Title}" Height="550" Width="950" >
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </Window.Resources>
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
@@ -85,12 +88,15 @@
                                                            Style="{StaticResource NavigationRailBodyKaiText}"/>
                                                 <StackPanel Style="{StaticResource NavigationRailBodyKaiInnerBlock}">
                                                     <CheckBox Style="{StaticResource VCheckBox}"
-                                                              IsChecked="{Binding VOption, Mode=OneWay}"/>
+                                                              IsChecked="{Binding VOption, Mode=OneWay}"
+                                                              Visibility="{Binding VOption, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"/>
                                                     <CheckBox Style="{StaticResource VGCheckBox}"
-                                                              IsChecked="{Binding VGOption, Mode=OneWay}"/>
+                                                              IsChecked="{Binding VGOption, Mode=OneWay}"
+                                                              Visibility="{Binding VGOption, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"/>
                                                 </StackPanel>
                                                 <CheckBox Style="{StaticResource ContainsSugarCheckBox}"
-                                                          IsChecked="{Binding ContainsSugar, Mode=OneWay}"/>
+                                                          IsChecked="{Binding ContainsSugar, Mode=OneWay}"
+                                                          Visibility="{Binding ContainsSugar, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"/>
                                                 <StackPanel Style="{StaticResource NavigationRailBodyKaiInnerBlock}">
                                                     <TextBlock Style="{StaticResource NavigationRailBodyOrderPromptTextBlock}"/>
                                                     <Button Style="{StaticResource NavigationRailBodyOrderDecrement}"
@@ -138,12 +144,15 @@
                                                            Style="{StaticResource NavigationRailBodyKaiText}"/>
                                                 <StackPanel Style="{StaticResource NavigationRailBodyKaiInnerBlock}">
                                                     <CheckBox Style="{StaticResource VCheckBox}"
-                                                              IsChecked="{Binding VOption, Mode=OneWay}"/>
+                                                              IsChecked="{Binding VOption, Mode=OneWay}"
+                                                              Visibility="{Binding VOption, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"/>
                                                     <CheckBox Style="{StaticResource VGCheckBox}"
-                                                              IsChecked="{Binding VGOption, Mode=OneWay}"/>
+                                                              IsChecked="{Binding VGOption, Mode=OneWay}"
+                                                              Visibility="{Binding VGOption, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"/>
                                                 </StackPanel>
                                                 <CheckBox Style="{StaticResource ContainsSugarCheckBox}"
-                                                          IsChecked="{Binding ContainsSugar, Mode=OneWay}"/>
+                                                          IsChecked="{Binding ContainsSugar, Mode=OneWay}"
+                                                          Visibility="{Binding ContainsSugar, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"/>
                                                 <StackPanel Style="{StaticResource NavigationRailBodyKaiInnerBlock}">
                                                     <TextBlock Style="{StaticResource NavigationRailBodyOrderPromptTextBlock}"/>
                                                     <Button Style="{StaticResource NavigationRailBodyOrderDecrement}"
@@ -191,12 +200,15 @@
                                                            Style="{StaticResource NavigationRailBodyKaiText}"/>
                                                 <StackPanel Style="{StaticResource NavigationRailBodyKaiInnerBlock}">
                                                     <CheckBox Style="{StaticResource VCheckBox}"
-                                                              IsChecked="{Binding VOption, Mode=OneWay}"/>
+                                                              IsChecked="{Binding VOption, Mode=OneWay}"
+                                                              Visibility="{Binding VOption, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"/>
                                                     <CheckBox Style="{StaticResource VGCheckBox}"
-                                                              IsChecked="{Binding VGOption, Mode=OneWay}"/>
+                                                              IsChecked="{Binding VGOption, Mode=OneWay}"
+                                                              Visibility="{Binding VGOption, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"/>
                                                 </StackPanel>
                                                 <CheckBox Style="{StaticResource ContainsSugarCheckBox}"
-                                                          IsChecked="{Binding ContainsSugar, Mode=OneWay}"/>
+                                                          IsChecked="{Binding ContainsSugar, Mode=OneWay}"
+                                                          Visibility="{Binding ContainsSugar, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"/>
                                                 <StackPanel Style="{StaticResource NavigationRailBodyKaiInnerBlock}">
                                                     <TextBlock Style="{StaticResource NavigationRailBodyOrderPromptTextBlock}"/>
                                                     <Button Style="{StaticResource NavigationRailBodyOrderDecrement}"
