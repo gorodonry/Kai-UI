@@ -1,4 +1,5 @@
 ﻿using Kai_UI.Models;
+using Prism.Commands;
 using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
@@ -138,7 +139,7 @@ namespace Kai_UI.ViewModels
             }
         }
 
-        public ObservableCollection<SpecialProduct> TodaysSpecialProducts
+        public ObservableCollection<Product> TodaysSpecialProducts
         {
             get
             {
@@ -146,7 +147,7 @@ namespace Kai_UI.ViewModels
                 
                 if (day != "Daily")
                 {
-                    ObservableCollection<SpecialProduct> todaysSpecialProducts = new();
+                    ObservableCollection<Product> todaysSpecialProducts = new();
 
                     foreach (SpecialProduct product in SpecialProducts)
                     {
@@ -160,8 +161,23 @@ namespace Kai_UI.ViewModels
                 }
                 else
                 {
-                    return new ObservableCollection<SpecialProduct>();
+                    return new ObservableCollection<Product>();
                 }
+            }
+        }
+
+        public ObservableCollection<Product> AllProducts
+        {
+            get
+            {
+                ObservableCollection<Product> allProducts = new();
+
+                allProducts.AddRange(Sandwiches);
+                allProducts.AddRange(Sushi);
+                allProducts.AddRange(Drinks);
+                allProducts.AddRange(SpecialProducts);
+
+                return allProducts;
             }
         }
 

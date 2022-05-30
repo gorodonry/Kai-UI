@@ -13,7 +13,7 @@
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
     </Window.Resources>
-    <Grid>
+    <Grid x:Name="MainGrid">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
@@ -71,7 +71,7 @@
                             </StackPanel>
                         </TabItem.Header>
                         <!-- Sandwiches selection UI -->
-                        <ScrollViewer>
+                        <ScrollViewer materialDesign:ScrollViewerAssist.IsAutoHideEnabled="True">
                             <StackPanel Style="{StaticResource NavigationRailBodyBase}">
                                 <ItemsControl ItemsSource="{Binding Sandwiches, Mode=OneWay}">
                                     <ItemsControl.ItemsPanel>
@@ -88,15 +88,12 @@
                                                            Style="{StaticResource NavigationRailBodyKaiText}"/>
                                                 <StackPanel Style="{StaticResource NavigationRailBodyKaiInnerBlock}">
                                                     <CheckBox Style="{StaticResource VCheckBox}"
-                                                              IsChecked="{Binding VOption, Mode=OneWay}"
-                                                              Visibility="{Binding VOption, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                                                              IsChecked="{Binding VOption, Mode=OneWay}"/>
                                                     <CheckBox Style="{StaticResource VGCheckBox}"
-                                                              IsChecked="{Binding VGOption, Mode=OneWay}"
-                                                              Visibility="{Binding VGOption, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                                                              IsChecked="{Binding VGOption, Mode=OneWay}"/>
                                                 </StackPanel>
                                                 <CheckBox Style="{StaticResource ContainsSugarCheckBox}"
-                                                          IsChecked="{Binding ContainsSugar, Mode=OneWay}"
-                                                          Visibility="{Binding ContainsSugar, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                                                          IsChecked="{Binding ContainsSugar, Mode=OneWay}"/>
                                                 <StackPanel Style="{StaticResource NavigationRailBodyKaiInnerBlock}">
                                                     <TextBlock Style="{StaticResource NavigationRailBodyOrderPromptTextBlock}"/>
                                                     <Button Style="{StaticResource NavigationRailBodyOrderDecrement}"
@@ -127,7 +124,7 @@
                             </StackPanel>
                         </TabItem.Header>
                         <!-- Sushi selection UI -->
-                        <ScrollViewer>
+                        <ScrollViewer materialDesign:ScrollViewerAssist.IsAutoHideEnabled="True">
                             <StackPanel Style="{StaticResource NavigationRailBodyBase}">
                                 <ItemsControl ItemsSource="{Binding Sushi, Mode=OneWay}">
                                     <ItemsControl.ItemsPanel>
@@ -144,15 +141,12 @@
                                                            Style="{StaticResource NavigationRailBodyKaiText}"/>
                                                 <StackPanel Style="{StaticResource NavigationRailBodyKaiInnerBlock}">
                                                     <CheckBox Style="{StaticResource VCheckBox}"
-                                                              IsChecked="{Binding VOption, Mode=OneWay}"
-                                                              Visibility="{Binding VOption, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                                                              IsChecked="{Binding VOption, Mode=OneWay}"/>
                                                     <CheckBox Style="{StaticResource VGCheckBox}"
-                                                              IsChecked="{Binding VGOption, Mode=OneWay}"
-                                                              Visibility="{Binding VGOption, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                                                              IsChecked="{Binding VGOption, Mode=OneWay}"/>
                                                 </StackPanel>
                                                 <CheckBox Style="{StaticResource ContainsSugarCheckBox}"
-                                                          IsChecked="{Binding ContainsSugar, Mode=OneWay}"
-                                                          Visibility="{Binding ContainsSugar, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                                                          IsChecked="{Binding ContainsSugar, Mode=OneWay}"/>
                                                 <StackPanel Style="{StaticResource NavigationRailBodyKaiInnerBlock}">
                                                     <TextBlock Style="{StaticResource NavigationRailBodyOrderPromptTextBlock}"/>
                                                     <Button Style="{StaticResource NavigationRailBodyOrderDecrement}"
@@ -183,7 +177,7 @@
                             </StackPanel>
                         </TabItem.Header>
                         <!-- Drinks selection UI -->
-                        <ScrollViewer>
+                        <ScrollViewer materialDesign:ScrollViewerAssist.IsAutoHideEnabled="True">
                             <StackPanel Style="{StaticResource NavigationRailBodyBase}">
                                 <ItemsControl ItemsSource="{Binding Drinks, Mode=OneWay}">
                                     <ItemsControl.ItemsPanel>
@@ -200,15 +194,12 @@
                                                            Style="{StaticResource NavigationRailBodyKaiText}"/>
                                                 <StackPanel Style="{StaticResource NavigationRailBodyKaiInnerBlock}">
                                                     <CheckBox Style="{StaticResource VCheckBox}"
-                                                              IsChecked="{Binding VOption, Mode=OneWay}"
-                                                              Visibility="{Binding VOption, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                                                              IsChecked="{Binding VOption, Mode=OneWay}"/>
                                                     <CheckBox Style="{StaticResource VGCheckBox}"
-                                                              IsChecked="{Binding VGOption, Mode=OneWay}"
-                                                              Visibility="{Binding VGOption, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                                                              IsChecked="{Binding VGOption, Mode=OneWay}"/>
                                                 </StackPanel>
                                                 <CheckBox Style="{StaticResource ContainsSugarCheckBox}"
-                                                          IsChecked="{Binding ContainsSugar, Mode=OneWay}"
-                                                          Visibility="{Binding ContainsSugar, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                                                          IsChecked="{Binding ContainsSugar, Mode=OneWay}"/>
                                                 <StackPanel Style="{StaticResource NavigationRailBodyKaiInnerBlock}">
                                                     <TextBlock Style="{StaticResource NavigationRailBodyOrderPromptTextBlock}"/>
                                                     <Button Style="{StaticResource NavigationRailBodyOrderDecrement}"
@@ -239,7 +230,7 @@
                             </StackPanel>
                         </TabItem.Header>
                         <!-- Special items selection UI -->
-                        <ScrollViewer>
+                        <ScrollViewer materialDesign:ScrollViewerAssist.IsAutoHideEnabled="True">
                             <StackPanel Style="{StaticResource NavigationRailBodyBase}">
                                 <ItemsControl ItemsSource="{Binding TodaysSpecialProducts, Mode=OneWay}">
                                     <ItemsControl.ItemsPanel>
@@ -311,18 +302,46 @@
                 </Style>
             </materialDesign:DrawerHost.Style>
             <materialDesign:DrawerHost.RightDrawerContent>
-                <Grid Width="200"
+                <Grid Width="auto"
                       Margin="20">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
-                    <!-- User's order so far -->
-                    <StackPanel Grid.Row="0"
-                                Width="200">
+                    <!-- User's order so far, show options to increment/decrement number of items on the order -->
+                    <StackPanel Grid.Row="0">
                         <TextBlock HorizontalAlignment="Center"
                                    FontSize="15"
+                                   Margin="0 0 0 20"
                                    Text="Your Order"/>
+                        <ScrollViewer MaxHeight="370"
+                                      materialDesign:ScrollViewerAssist.IsAutoHideEnabled="True">
+                            <ItemsControl ItemsSource="{Binding AllProducts, Mode=OneWay}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel>
+                                            <StackPanel.Resources>
+                                                <Style TargetType="StackPanel" BasedOn="{StaticResource NavigationRailBodyKaiInnerBlock}">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding NoOrdered}" Value="0">
+                                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </StackPanel.Resources>
+                                            <TextBlock Style="{StaticResource NavigationRailBodyOrderPromptTextBlock}"
+                                                   Text="{Binding Name}"/>
+                                            <Button Style="{StaticResource NavigationRailBodyOrderDecrement}"
+                                                Command="{Binding DecrementOrder}"/>
+                                            <TextBlock Text="{Binding NoOrdered, Mode=OneWay}"
+                                                   Style="{StaticResource NavigationRailBodyOrderTextBlock}"/>
+                                            <Button Style="{StaticResource NavigationRailBodyOrderIncrement}"
+                                                Command="{Binding IncrementOrder}"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>
                     </StackPanel>
                     <!-- Button to close the view order drawer, positioned at the bottom of the drawer -->
                     <Button Grid.Row="1"

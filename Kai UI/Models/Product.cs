@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Kai_UI.ViewModels;
 
 namespace Kai_UI.Models
 {
@@ -85,6 +86,7 @@ namespace Kai_UI.Models
         {
             NoOrdered++;
             DecrementOrder.RaiseCanExecuteChanged();
+            
         }
 
         bool CanExecuteIncrementOrder()
@@ -112,21 +114,6 @@ namespace Kai_UI.Models
             {
                 return true;
             }
-        }
-    }
-
-    public class SpecialProduct : Product
-    {
-        protected string dayAvailable;
-
-        public SpecialProduct(string name, string type, bool vOption, bool vGOption, bool containsSugar, double price, string dayAvailable, string imageURI):base(name, type, vOption, vGOption, containsSugar, price, imageURI)
-        {
-            this.dayAvailable = dayAvailable;
-        }
-
-        public string DayAvailable
-        {
-            get { return dayAvailable; }
         }
     }
 }
