@@ -28,6 +28,7 @@
     <None Remove="Images\water_bottle.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Aspose.Cells" Version="22.5.0" />
     <PackageReference Include="MaterialDesignThemes" Version="4.5.0" />
     <PackageReference Include="Prism.Unity" Version="8.1.97" />
   </ItemGroup>

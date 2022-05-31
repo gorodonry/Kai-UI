@@ -44,6 +44,10 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "dependencies": {
+            "Aspose.Cells": {
+              "target": "Package",
+              "version": "[22.5.0, )"
+            },
             "MaterialDesignThemes": {
               "target": "Package",
               "version": "[4.5.0, )"

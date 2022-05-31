@@ -399,6 +399,8 @@
                                     Grid.Row="1"
                                     Margin="30"
                                     Command="{Binding SubmitOrder}"
+                                    materialDesign:ButtonProgressAssist.IsIndicatorVisible="{Binding Submitting}"
+                                    materialDesign:ButtonProgressAssist.IsIndeterminate="True"
                                     Content="Submit Order"/>
                             <Border Grid.Column="1"
                                     Grid.Row="0"

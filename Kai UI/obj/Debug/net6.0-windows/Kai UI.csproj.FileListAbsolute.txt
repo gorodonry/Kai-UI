@@ -29,3 +29,4 @@ C:\Users\Ryan Gordon\Documents\Education\Onslow\Y13\Comp. Science & Programming 
 C:\Users\Ryan Gordon\Documents\Education\Onslow\Y13\Comp. Science & Programming L3\Doc\Repositories\Kai-UI\Kai UI\obj\Debug\net6.0-windows\Kai UI.pdb
 C:\Users\Ryan Gordon\Documents\Education\Onslow\Y13\Comp. Science & Programming L3\Doc\Repositories\Kai-UI\Kai UI\obj\Debug\net6.0-windows\Kai UI.genruntimeconfig.cache
 C:\Users\Ryan Gordon\Documents\Education\Onslow\Y13\Comp. Science & Programming L3\Doc\Repositories\Kai-UI\Kai UI\obj\Debug\net6.0-windows\ref\Kai UI.dll
+C:\Users\Ryan Gordon\Documents\Education\Onslow\Y13\Comp. Science & Programming L3\Doc\Repositories\Kai-UI\Kai UI\bin\Debug\net6.0-windows\Aspose.Cells.dll

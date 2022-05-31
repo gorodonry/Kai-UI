@@ -1,4 +1,5 @@
-﻿using Kai_UI.Models;
+﻿using Aspose.Cells;
+using Kai_UI.Models;
 using Prism.Commands;
 using Prism.Mvvm;
 using System;
@@ -260,6 +261,13 @@ namespace Kai_UI.ViewModels
             }
         }
 
+        private bool _submitting = false;
+        public bool Submitting
+        {
+            get { return _submitting; }
+            set { SetProperty(ref _submitting, value); }
+        }
+
         // Command called by the 'submit order' button
         private DelegateCommand _submitOrder;
         public DelegateCommand SubmitOrder =>
@@ -267,7 +275,50 @@ namespace Kai_UI.ViewModels
 
         void ExecuteSubmitOrder()
         {
+            Submitting = true;
+            RaisePropertyChanged(nameof(Submitting));
 
+            //// Export the data
+            //Workbook order = new Workbook();
+            //Worksheet receipt = order.Worksheets[0];
+            //receipt.Name = $"Order for {UserName}";
+            //
+            //// Make a dictionary of products that have been ordered and the quantity ordered
+            //Dictionary<string, string> productAmounts = new() { };
+            //
+            //foreach(Product product in AllProducts)
+            //{
+            //    if (product.NoOrdered != 0)
+            //    {
+            //        productAmounts[product.Name] = product.NoOrdered.ToString();
+            //    }
+            //}
+            //
+            //// Turn the dictionary into a 2D array so it can be exported
+            //string[,] productsOrdered = new string[productAmounts.Count() + 1, 2];
+            //productsOrdered[0, 0] = "Product Name";
+            //productsOrdered[0, 1] = "Quantity Ordered";
+            //
+            //foreach(string product in productAmounts.Keys)
+            //{
+            //    productsOrdered[productAmounts.Keys.ToList().IndexOf(product) + 1, 0] = product;
+            //    productsOrdered[productAmounts.Keys.ToList().IndexOf(product) + 1, 1] = productAmounts[product];
+            //}
+            //
+            //// Export the array
+            //receipt.Cells.ImportArray(productsOrdered, 0, 0);
+            //order.Save($"Order for {UserName}.xlsx");
+
+            // Reset the view
+            foreach(Product product in AllProducts)
+            {
+                product.NoOrdered = 0;
+            }
+
+            UserName = string.Empty;
+
+            Submitting = false;
+            RaisePropertyChanged(nameof(Submitting));
         }
 
         bool CanExecuteSubmitOrder()
