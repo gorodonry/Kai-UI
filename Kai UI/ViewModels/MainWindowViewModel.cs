@@ -314,6 +314,7 @@ namespace Kai_UI.ViewModels
             {
                 product.NoOrdered = 0;
             }
+            RaisePropertyChanged(nameof(TotalPrice));
 
             UserName = string.Empty;
 
