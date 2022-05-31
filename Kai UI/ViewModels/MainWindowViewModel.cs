@@ -19,19 +19,16 @@ namespace Kai_UI.ViewModels
             set { SetProperty(ref _title, value); }
         }
 
-        // List of days in the week in which the OC canteen might be open (fairly self-explanatory)
-        private readonly List<string> daysOfTheSchoolWeek = new()
+        private Model data = new();
+        public Model Data
         {
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday"
-        };
+            get { return data; }
+            set { SetProperty(ref data, value); }
+        }
 
         public List<string> DaysOfTheSchoolWeek
         {
-            get { return daysOfTheSchoolWeek; }
+            get { return Data.DaysOfTheSchoolWeek; }
         }
 
         // Observable collection of all sandwiches
@@ -47,11 +44,7 @@ namespace Kai_UI.ViewModels
         public ObservableCollection<Product> Sandwiches
         {
             get { return sandwiches; }
-            set
-            {
-                SetProperty(ref sandwiches, value);
-                RaisePropertyChanged(nameof(TotalPrice));
-            }
+            set { SetProperty(ref sandwiches, value); }
         }
 
         // Observable collection of all sushi
@@ -67,11 +60,7 @@ namespace Kai_UI.ViewModels
         public ObservableCollection<Product> Sushi
         {
             get { return sushi; }
-            set
-            {
-                SetProperty(ref sushi, value);
-                RaisePropertyChanged(nameof(TotalPrice));
-            }
+            set { SetProperty(ref sushi, value); }
         }
 
         // Observable collection of all drinks
@@ -87,11 +76,7 @@ namespace Kai_UI.ViewModels
         public ObservableCollection<Product> Drinks
         {
             get { return drinks; }
-            set
-            {
-                SetProperty(ref drinks, value);
-                RaisePropertyChanged(nameof(TotalPrice));
-            }
+            set { SetProperty(ref drinks, value); }
         }
 
         // Observable collection of all kai unique to specific days
@@ -107,11 +92,7 @@ namespace Kai_UI.ViewModels
         public ObservableCollection<SpecialProduct> SpecialProducts
         {
             get { return specialProducts; }
-            set
-            {
-                SetProperty(ref specialProducts, value);
-                RaisePropertyChanged(nameof(TotalPrice));
-            }
+            set { SetProperty(ref specialProducts, value); }
         }
 
         // Day of the week in index form, bound to a combobox that allows the user to select the day
@@ -219,6 +200,7 @@ namespace Kai_UI.ViewModels
             product.NoOrdered++;
             DecrementOrder.RaiseCanExecuteChanged();
             RaisePropertyChanged(nameof(TotalPrice));
+            SubmitOrder.RaiseCanExecuteChanged();
         }
 
         bool CanExecuteIncrementOrder(Product product)
@@ -236,6 +218,7 @@ namespace Kai_UI.ViewModels
             product.NoOrdered--;
             DecrementOrder.RaiseCanExecuteChanged();
             RaisePropertyChanged(nameof(TotalPrice));
+            SubmitOrder.RaiseCanExecuteChanged();
         }
 
         bool CanExecuteDecrementOrder(Product product)
@@ -270,7 +253,11 @@ namespace Kai_UI.ViewModels
         public string UserName
         {
             get { return _userName; }
-            set { SetProperty(ref _userName, value); }
+            set
+            {
+                SetProperty(ref _userName, value);
+                SubmitOrder.RaiseCanExecuteChanged();
+            }
         }
 
         // Command called by the 'submit order' button

@@ -372,7 +372,7 @@
                                              HorizontalAlignment="Left"
                                              Margin="10 0 0 0"
                                              Width="200"
-                                             Text="{Binding UserName}"
+                                             Text="{Binding UserName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                              materialDesign:HintAssist.Hint="Enter your name"/>
                                     <TextBlock Grid.Column="0"
                                                Grid.Row="1"
@@ -444,8 +444,8 @@
                                                     <TextBlock Grid.Column="0"
                                                                Style="{StaticResource NavigationRailBodyOrderPromptTextBlock}"
                                                                Text="{Binding Name}"/>
-                                                    <StackPanel Grid.Column="1"
-                                                                Orientation="Horizontal">
+                                                    <VirtualizingStackPanel Grid.Column="1"
+                                                                            Orientation="Horizontal">
                                                         <Button Style="{StaticResource NavigationRailBodyOrderDecrement}"
                                                             Command="{Binding DataContext.DecrementOrder, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                                                             CommandParameter="{Binding}"/>
@@ -454,7 +454,7 @@
                                                         <Button Style="{StaticResource NavigationRailBodyOrderIncrement}"
                                                                 Command="{Binding DataContext.IncrementOrder, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                                                                 CommandParameter="{Binding}"/>
-                                                    </StackPanel>
+                                                    </VirtualizingStackPanel>
                                                 </Grid>
                                             </DataTemplate>
                                         </ItemsControl.ItemTemplate>
@@ -515,19 +515,19 @@
                                             </Style>
                                         </Grid.Resources>
                                         <TextBlock Grid.Column="0"
-                                                               Style="{StaticResource NavigationRailBodyOrderPromptTextBlock}"
-                                                               Text="{Binding Name}"/>
-                                        <StackPanel Grid.Column="1"
+                                                   Style="{StaticResource NavigationRailBodyOrderPromptTextBlock}"
+                                                   Text="{Binding Name}"/>
+                                        <VirtualizingStackPanel Grid.Column="1"
                                                                 Orientation="Horizontal">
                                             <Button Style="{StaticResource NavigationRailBodyOrderDecrement}"
-                                                            Command="{Binding DataContext.DecrementOrder, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
-                                                            CommandParameter="{Binding}"/>
+                                                    Command="{Binding DataContext.DecrementOrder, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                                    CommandParameter="{Binding}"/>
                                             <TextBlock Text="{Binding NoOrdered, Mode=OneWay}"
-                                                               Style="{StaticResource NavigationRailBodyOrderTextBlock}"/>
+                                                       Style="{StaticResource NavigationRailBodyOrderTextBlock}"/>
                                             <Button Style="{StaticResource NavigationRailBodyOrderIncrement}"
-                                                                Command="{Binding DataContext.IncrementOrder, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
-                                                                CommandParameter="{Binding}"/>
-                                        </StackPanel>
+                                                    Command="{Binding DataContext.IncrementOrder, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                                    CommandParameter="{Binding}"/>
+                                        </VirtualizingStackPanel>
                                     </Grid>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
