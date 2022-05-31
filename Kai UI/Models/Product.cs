@@ -8,11 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Kai_UI.ViewModels;
+using Prism.Events;
 
 namespace Kai_UI.Models
 {
     public class Product : BindableBase
     {
+        // Class containing all information relating to a product, with getters and (usually) no setters for said information
         protected string name;
         protected string type;
         protected bool vOption;
@@ -63,6 +65,12 @@ namespace Kai_UI.Models
             get { return price; }
         }
 
+        public string DisplayPrice
+        {
+            get { return $"${price:0.00}"; }
+        }
+
+        // Number of this product ordered by the user, subject to change
         public int NoOrdered
         {
             get { return noOrdered; }
@@ -76,44 +84,6 @@ namespace Kai_UI.Models
         public string ImageURI
         {
             get { return imageURI; }
-        }
-
-        private DelegateCommand _incrementOrder;
-        public DelegateCommand IncrementOrder =>
-            _incrementOrder ?? (_incrementOrder = new DelegateCommand(ExecuteIncrementOrder, CanExecuteIncrementOrder));
-
-        void ExecuteIncrementOrder()
-        {
-            NoOrdered++;
-            DecrementOrder.RaiseCanExecuteChanged();
-            
-        }
-
-        bool CanExecuteIncrementOrder()
-        {
-            return true;
-        }
-
-        private DelegateCommand _decrementOrder;
-        public DelegateCommand DecrementOrder =>
-            _decrementOrder ?? (_decrementOrder = new DelegateCommand(ExecuteDecrementOrder, CanExecuteDecrementOrder));
-
-        void ExecuteDecrementOrder()
-        {
-            NoOrdered--;
-            DecrementOrder.RaiseCanExecuteChanged();
-        }
-
-        bool CanExecuteDecrementOrder()
-        {
-            if (NoOrdered == 0)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
         }
     }
 }

@@ -18,6 +18,7 @@
     <None Remove="Images\hangi.jpg" />
     <None Remove="Images\instant_hot_chocolate.jpg" />
     <None Remove="Images\kale_moa.jpg" />
+    <None Remove="Images\onslow_logo.png" />
     <None Remove="Images\paneer_tikka_masala.jpg" />
     <None Remove="Images\potjiekos.jpg" />
     <None Remove="Images\salad_sandwich.jpg" />
@@ -44,6 +45,7 @@
     <Resource Include="Images\hangi.jpg" />
     <Resource Include="Images\instant_hot_chocolate.jpg" />
     <Resource Include="Images\kale_moa.jpg" />
+    <Resource Include="Images\onslow_logo.png" />
     <Resource Include="Images\paneer_tikka_masala.jpg" />
     <Resource Include="Images\potjiekos.jpg" />
     <Resource Include="Images\salad_sandwich.jpg" />

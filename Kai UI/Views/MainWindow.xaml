@@ -3,13 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:prism="http://prismlibrary.com/"
         prism:ViewModelLocator.AutoWireViewModel="True"
+        xmlns:localViewModels="clr-namespace:Kai_UI.ViewModels"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{DynamicResource MaterialDesignPaper}"
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
         FontFamily="{materialDesign:MaterialDesignFont}"
-        Title="{Binding Title}" Height="550" Width="950" >
+        Title="{Binding Title}" Height="550" Width="950">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
     </Window.Resources>
@@ -84,8 +85,19 @@
                                             <StackPanel Style="{StaticResource NavigationRailBodyKaiBlock}">
                                                 <Image Source="{Binding ImageURI, Mode=OneWay}"
                                                        Style="{StaticResource NavigationRailBodyKaiImages}"/>
-                                                <TextBlock Text="{Binding Name, Mode=OneWay}"
-                                                           Style="{StaticResource NavigationRailBodyKaiText}"/>
+                                                <Grid Height="auto"
+                                                      Width="200">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition/>
+                                                        <ColumnDefinition Width="auto"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock Grid.Column="0"
+                                                               Text="{Binding Name, Mode=OneWay}"
+                                                               Style="{StaticResource NavigationRailBodyKaiText}"/>
+                                                    <TextBlock Grid.Column="1"
+                                                               Text="{Binding DisplayPrice, Mode=OneWay}"
+                                                               Style="{StaticResource NavigationRailBodyKaiPrice}"/>
+                                                </Grid>
                                                 <StackPanel Style="{StaticResource NavigationRailBodyKaiInnerBlock}">
                                                     <CheckBox Style="{StaticResource VCheckBox}"
                                                               IsChecked="{Binding VOption, Mode=OneWay}"/>
@@ -97,11 +109,13 @@
                                                 <StackPanel Style="{StaticResource NavigationRailBodyKaiInnerBlock}">
                                                     <TextBlock Style="{StaticResource NavigationRailBodyOrderPromptTextBlock}"/>
                                                     <Button Style="{StaticResource NavigationRailBodyOrderDecrement}"
-                                                            Command="{Binding DecrementOrder}"/>
+                                                            Command="{Binding DataContext.DecrementOrder, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                                            CommandParameter="{Binding}"/>
                                                     <TextBlock Text="{Binding NoOrdered, Mode=OneWay}"
                                                                Style="{StaticResource NavigationRailBodyOrderTextBlock}"/>
                                                     <Button Style="{StaticResource NavigationRailBodyOrderIncrement}"
-                                                            Command="{Binding IncrementOrder}"/>
+                                                            Command="{Binding DataContext.IncrementOrder, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                                            CommandParameter="{Binding}"/>
                                                 </StackPanel>
                                             </StackPanel>
                                         </DataTemplate>
@@ -137,8 +151,19 @@
                                             <StackPanel Style="{StaticResource NavigationRailBodyKaiBlock}">
                                                 <Image Source="{Binding ImageURI, Mode=OneWay}"
                                                        Style="{StaticResource NavigationRailBodyKaiImages}"/>
-                                                <TextBlock Text="{Binding Name, Mode=OneWay}"
-                                                           Style="{StaticResource NavigationRailBodyKaiText}"/>
+                                                <Grid Height="auto"
+                                                      Width="200">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition/>
+                                                        <ColumnDefinition Width="auto"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock Grid.Column="0"
+                                                               Text="{Binding Name, Mode=OneWay}"
+                                                               Style="{StaticResource NavigationRailBodyKaiText}"/>
+                                                    <TextBlock Grid.Column="1"
+                                                               Text="{Binding DisplayPrice, Mode=OneWay}"
+                                                               Style="{StaticResource NavigationRailBodyKaiPrice}"/>
+                                                </Grid>
                                                 <StackPanel Style="{StaticResource NavigationRailBodyKaiInnerBlock}">
                                                     <CheckBox Style="{StaticResource VCheckBox}"
                                                               IsChecked="{Binding VOption, Mode=OneWay}"/>
@@ -150,11 +175,13 @@
                                                 <StackPanel Style="{StaticResource NavigationRailBodyKaiInnerBlock}">
                                                     <TextBlock Style="{StaticResource NavigationRailBodyOrderPromptTextBlock}"/>
                                                     <Button Style="{StaticResource NavigationRailBodyOrderDecrement}"
-                                                            Command="{Binding DecrementOrder}"/>
+                                                            Command="{Binding DataContext.DecrementOrder, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                                            CommandParameter="{Binding}"/>
                                                     <TextBlock Text="{Binding NoOrdered, Mode=OneWay}"
                                                                Style="{StaticResource NavigationRailBodyOrderTextBlock}"/>
                                                     <Button Style="{StaticResource NavigationRailBodyOrderIncrement}"
-                                                            Command="{Binding IncrementOrder}"/>
+                                                            Command="{Binding DataContext.IncrementOrder, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                                            CommandParameter="{Binding}"/>
                                                 </StackPanel>
                                             </StackPanel>
                                         </DataTemplate>
@@ -190,8 +217,19 @@
                                             <StackPanel Style="{StaticResource NavigationRailBodyKaiBlock}">
                                                 <Image Source="{Binding ImageURI, Mode=OneWay}"
                                                        Style="{StaticResource NavigationRailBodyKaiImages}"/>
-                                                <TextBlock Text="{Binding Name, Mode=OneWay}"
-                                                           Style="{StaticResource NavigationRailBodyKaiText}"/>
+                                                <Grid Height="auto"
+                                                      Width="200">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition/>
+                                                        <ColumnDefinition Width="auto"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock Grid.Column="0"
+                                                               Text="{Binding Name, Mode=OneWay}"
+                                                               Style="{StaticResource NavigationRailBodyKaiText}"/>
+                                                    <TextBlock Grid.Column="1"
+                                                               Text="{Binding DisplayPrice, Mode=OneWay}"
+                                                               Style="{StaticResource NavigationRailBodyKaiPrice}"/>
+                                                </Grid>
                                                 <StackPanel Style="{StaticResource NavigationRailBodyKaiInnerBlock}">
                                                     <CheckBox Style="{StaticResource VCheckBox}"
                                                               IsChecked="{Binding VOption, Mode=OneWay}"/>
@@ -203,11 +241,13 @@
                                                 <StackPanel Style="{StaticResource NavigationRailBodyKaiInnerBlock}">
                                                     <TextBlock Style="{StaticResource NavigationRailBodyOrderPromptTextBlock}"/>
                                                     <Button Style="{StaticResource NavigationRailBodyOrderDecrement}"
-                                                            Command="{Binding DecrementOrder}"/>
+                                                            Command="{Binding DataContext.DecrementOrder, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                                            CommandParameter="{Binding}"/>
                                                     <TextBlock Text="{Binding NoOrdered, Mode=OneWay}"
                                                                Style="{StaticResource NavigationRailBodyOrderTextBlock}"/>
                                                     <Button Style="{StaticResource NavigationRailBodyOrderIncrement}"
-                                                            Command="{Binding IncrementOrder}"/>
+                                                            Command="{Binding DataContext.IncrementOrder, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                                            CommandParameter="{Binding}"/>
                                                 </StackPanel>
                                             </StackPanel>
                                         </DataTemplate>
@@ -243,8 +283,19 @@
                                             <StackPanel Style="{StaticResource NavigationRailBodyKaiBlock}">
                                                 <Image Source="{Binding ImageURI, Mode=OneWay}"
                                                        Style="{StaticResource NavigationRailBodyKaiImages}"/>
-                                                <TextBlock Text="{Binding Name, Mode=OneWay}"
-                                                           Style="{StaticResource NavigationRailBodyKaiText}"/>
+                                                <Grid Height="auto"
+                                                      Width="200">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition/>
+                                                        <ColumnDefinition Width="auto"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock Grid.Column="0"
+                                                               Text="{Binding Name, Mode=OneWay}"
+                                                               Style="{StaticResource NavigationRailBodyKaiText}"/>
+                                                    <TextBlock Grid.Column="1"
+                                                               Text="{Binding DisplayPrice, Mode=OneWay}"
+                                                               Style="{StaticResource NavigationRailBodyKaiPrice}"/>
+                                                </Grid>
                                                 <StackPanel Style="{StaticResource NavigationRailBodyKaiInnerBlock}">
                                                     <CheckBox Style="{StaticResource VCheckBox}"
                                                               IsChecked="{Binding VOption, Mode=OneWay}"/>
@@ -256,11 +307,13 @@
                                                 <StackPanel Style="{StaticResource NavigationRailBodyKaiInnerBlock}">
                                                     <TextBlock Style="{StaticResource NavigationRailBodyOrderPromptTextBlock}"/>
                                                     <Button Style="{StaticResource NavigationRailBodyOrderDecrement}"
-                                                            Command="{Binding DecrementOrder}"/>
+                                                            Command="{Binding DataContext.DecrementOrder, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                                            CommandParameter="{Binding}"/>
                                                     <TextBlock Text="{Binding NoOrdered, Mode=OneWay}"
                                                                Style="{StaticResource NavigationRailBodyOrderTextBlock}"/>
                                                     <Button Style="{StaticResource NavigationRailBodyOrderIncrement}"
-                                                            Command="{Binding IncrementOrder}"/>
+                                                            Command="{Binding DataContext.IncrementOrder, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                                            CommandParameter="{Binding}"/>
                                                 </StackPanel>
                                             </StackPanel>
                                         </DataTemplate>
@@ -283,6 +336,132 @@
                             </StackPanel>
                         </TabItem.Header>
                         <!-- Cart UI -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <!-- Stackpanel with cart interaction UI -->
+                            <StackPanel Grid.Column="0"
+                                        Grid.Row="0">
+                                <TextBlock Margin="70 30 0 30"
+                                           FontSize="20"
+                                           Text="Cart"/>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Grid.Column="0"
+                                               Grid.Row="0"
+                                               HorizontalAlignment="Right"
+                                               Margin="0 4 10 0"
+                                               Text="Who is this order for?"/>
+                                    <TextBox Grid.Column="2"
+                                             Grid.Row="0"
+                                             HorizontalAlignment="Left"
+                                             Margin="10 0 0 0"
+                                             Width="200"
+                                             Text="{Binding UserName}"
+                                             materialDesign:HintAssist.Hint="Enter your name"/>
+                                    <TextBlock Grid.Column="0"
+                                               Grid.Row="1"
+                                               HorizontalAlignment="Right"
+                                               Margin="0 20 10 0"
+                                               Text="Total"/>
+                                    <TextBlock Grid.Column="2"
+                                               Grid.Row="1"
+                                               HorizontalAlignment="Left"
+                                               Margin="10 20 0 0"
+                                               Text="{Binding TotalPrice, Mode=OneWay, StringFormat={}${0:0.00}}"/>
+                                    <Border Grid.Column="1"
+                                            Grid.Row="0"
+                                            Grid.RowSpan="2"
+                                            BorderThickness="0.4"
+                                            BorderBrush="LightGray"/>
+                                </Grid>
+                                <Image Source="/Images/onslow_logo.png"
+                                       Width="100"
+                                       Height="100"
+                                       Margin="0 50 0 0"/>
+                            </StackPanel>
+                            <Button Grid.Column="0"
+                                    Grid.Row="1"
+                                    Margin="30"
+                                    Command="{Binding SubmitOrder}"
+                                    Content="Submit Order"/>
+                            <Border Grid.Column="1"
+                                    Grid.Row="0"
+                                    Grid.RowSpan="2"
+                                    Margin="0 10 0 10"
+                                    BorderThickness="0.5"
+                                    BorderBrush="LightGray"/>
+                            <!-- Grid displaying user's order, with options to manipulate said order -->
+                            <Grid Grid.Column="2"
+                                  Grid.Row="0"
+                                  Grid.RowSpan="2"
+                                  Margin="20"
+                                  MinWidth="150">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0"
+                                           HorizontalAlignment="Center"
+                                           FontSize="15"
+                                           Margin="0 0 0 20"
+                                           Text="Your Order"/>
+                                <ScrollViewer Grid.Row="1"
+                                              materialDesign:ScrollViewerAssist.IsAutoHideEnabled="True">
+                                    <ItemsControl ItemsSource="{Binding AllProducts, Mode=OneWay}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition/>
+                                                        <ColumnDefinition Width="auto"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.Resources>
+                                                        <Style TargetType="Grid">
+                                                            <Setter Property="Margin" Value="0 5 0 0"/>
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding NoOrdered}" Value="0">
+                                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </Grid.Resources>
+                                                    <TextBlock Grid.Column="0"
+                                                               Style="{StaticResource NavigationRailBodyOrderPromptTextBlock}"
+                                                               Text="{Binding Name}"/>
+                                                    <StackPanel Grid.Column="1"
+                                                                Orientation="Horizontal">
+                                                        <Button Style="{StaticResource NavigationRailBodyOrderDecrement}"
+                                                            Command="{Binding DataContext.DecrementOrder, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                                            CommandParameter="{Binding}"/>
+                                                        <TextBlock Text="{Binding NoOrdered, Mode=OneWay}"
+                                                               Style="{StaticResource NavigationRailBodyOrderTextBlock}"/>
+                                                        <Button Style="{StaticResource NavigationRailBodyOrderIncrement}"
+                                                                Command="{Binding DataContext.IncrementOrder, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                                                CommandParameter="{Binding}"/>
+                                                    </StackPanel>
+                                                </Grid>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </ScrollViewer>
+                            </Grid>
+                        </Grid>
                     </TabItem>
                 </TabControl>
             </materialDesign:Card>
@@ -305,53 +484,64 @@
                 <Grid Width="auto"
                       Margin="20">
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
                         <RowDefinition/>
                         <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
-                    <!-- User's order so far, show options to increment/decrement number of items on the order -->
-                    <StackPanel Grid.Row="0">
-                        <TextBlock HorizontalAlignment="Center"
-                                   FontSize="15"
-                                   Margin="0 0 0 20"
-                                   Text="Your Order"/>
-                        <ScrollViewer MaxHeight="370"
-                                      materialDesign:ScrollViewerAssist.IsAutoHideEnabled="True">
-                            <ItemsControl ItemsSource="{Binding AllProducts, Mode=OneWay}">
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate>
-                                        <StackPanel>
-                                            <StackPanel.Resources>
-                                                <Style TargetType="StackPanel" BasedOn="{StaticResource NavigationRailBodyKaiInnerBlock}">
-                                                    <Style.Triggers>
-                                                        <DataTrigger Binding="{Binding NoOrdered}" Value="0">
-                                                            <Setter Property="Visibility" Value="Collapsed"/>
-                                                        </DataTrigger>
-                                                    </Style.Triggers>
-                                                </Style>
-                                            </StackPanel.Resources>
-                                            <TextBlock Style="{StaticResource NavigationRailBodyOrderPromptTextBlock}"
-                                                   Text="{Binding Name}"/>
+                    <!-- User's order so far, provide options to increment/decrement number of items on the order -->
+                    <TextBlock Grid.Row="0"
+                               HorizontalAlignment="Center"
+                               FontSize="15"
+                               Margin="0 0 0 20"
+                               Text="Your Order"/>
+                    <ScrollViewer Grid.Row="1"
+                                  materialDesign:ScrollViewerAssist.IsAutoHideEnabled="True">
+                        <ItemsControl ItemsSource="{Binding AllProducts, Mode=OneWay}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition Width="auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.Resources>
+                                            <Style TargetType="Grid">
+                                                <Setter Property="Margin" Value="0 5 0 0"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding NoOrdered}" Value="0">
+                                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Grid.Resources>
+                                        <TextBlock Grid.Column="0"
+                                                               Style="{StaticResource NavigationRailBodyOrderPromptTextBlock}"
+                                                               Text="{Binding Name}"/>
+                                        <StackPanel Grid.Column="1"
+                                                                Orientation="Horizontal">
                                             <Button Style="{StaticResource NavigationRailBodyOrderDecrement}"
-                                                Command="{Binding DecrementOrder}"/>
+                                                            Command="{Binding DataContext.DecrementOrder, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                                            CommandParameter="{Binding}"/>
                                             <TextBlock Text="{Binding NoOrdered, Mode=OneWay}"
-                                                   Style="{StaticResource NavigationRailBodyOrderTextBlock}"/>
+                                                               Style="{StaticResource NavigationRailBodyOrderTextBlock}"/>
                                             <Button Style="{StaticResource NavigationRailBodyOrderIncrement}"
-                                                Command="{Binding IncrementOrder}"/>
+                                                                Command="{Binding DataContext.IncrementOrder, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                                                CommandParameter="{Binding}"/>
                                         </StackPanel>
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                            </ItemsControl>
-                        </ScrollViewer>
-                    </StackPanel>
+                                    </Grid>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
                     <!-- Button to close the view order drawer, positioned at the bottom of the drawer -->
-                    <Button Grid.Row="1"
+                    <Button Grid.Row="2"
                             Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
                             CommandParameter="{x:Static Dock.Right}"
                             Style="{StaticResource MaterialDesignFlatButton}"
                             HorizontalAlignment="Center"
                             HorizontalContentAlignment="Center"
                             VerticalAlignment="Bottom"
-                            Margin="0 0 0 10"
+                            Margin="0 20 0 10"
                             Width="150"
                             Content="Back"/>
                 </Grid>

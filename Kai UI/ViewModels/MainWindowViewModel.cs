@@ -11,6 +11,7 @@ namespace Kai_UI.ViewModels
 {
     public class MainWindowViewModel : BindableBase
     {
+        // Title of the window
         private string _title = "Kai UI";
         public string Title
         {
@@ -18,7 +19,8 @@ namespace Kai_UI.ViewModels
             set { SetProperty(ref _title, value); }
         }
 
-        private readonly List<string> daysOfTheSchoolWeek = new List<string>()
+        // List of days in the week in which the OC canteen might be open (fairly self-explanatory)
+        private readonly List<string> daysOfTheSchoolWeek = new()
         {
             "Monday",
             "Tuesday",
@@ -32,6 +34,7 @@ namespace Kai_UI.ViewModels
             get { return daysOfTheSchoolWeek; }
         }
 
+        // Observable collection of all sandwiches
         private ObservableCollection<Product> sandwiches = new()
         {
             new Product("Ham & egg sandwich", "sandwich", false, false, false, 3.5, "/Images/ham_and_egg_sandwich.jpg"),
@@ -44,9 +47,14 @@ namespace Kai_UI.ViewModels
         public ObservableCollection<Product> Sandwiches
         {
             get { return sandwiches; }
-            set { SetProperty(ref sandwiches, value); }
+            set
+            {
+                SetProperty(ref sandwiches, value);
+                RaisePropertyChanged(nameof(TotalPrice));
+            }
         }
 
+        // Observable collection of all sushi
         private ObservableCollection<Product> sushi = new()
         {
             new Product("Chicken (3pc)", "sushi", false, false, false, 4.5, "/Images/chicken_sushi.jpg"),
@@ -59,9 +67,14 @@ namespace Kai_UI.ViewModels
         public ObservableCollection<Product> Sushi
         {
             get { return sushi; }
-            set { SetProperty(ref sushi, value); }
+            set
+            {
+                SetProperty(ref sushi, value);
+                RaisePropertyChanged(nameof(TotalPrice));
+            }
         }
 
+        // Observable collection of all drinks
         private ObservableCollection<Product> drinks = new()
         {
             new Product("Soda can", "drink", true, true, true, 2, "/Images/soda_can.jpg"),
@@ -74,9 +87,14 @@ namespace Kai_UI.ViewModels
         public ObservableCollection<Product> Drinks
         {
             get { return drinks; }
-            set { SetProperty(ref drinks, value); }
+            set
+            {
+                SetProperty(ref drinks, value);
+                RaisePropertyChanged(nameof(TotalPrice));
+            }
         }
 
+        // Observable collection of all kai unique to specific days
         private ObservableCollection<SpecialProduct> specialProducts = new()
         {
             new SpecialProduct("Kale moa", "special", false, false, true, 6, "monday", "/Images/kale_moa.jpg"),
@@ -89,9 +107,14 @@ namespace Kai_UI.ViewModels
         public ObservableCollection<SpecialProduct> SpecialProducts
         {
             get { return specialProducts; }
-            set { SetProperty(ref specialProducts, value); }
+            set
+            {
+                SetProperty(ref specialProducts, value);
+                RaisePropertyChanged(nameof(TotalPrice));
+            }
         }
 
+        // Day of the week in index form, bound to a combobox that allows the user to select the day
         private string _dayOfTheSchoolWeek = string.Empty;
         public string DayOfTheSchoolWeek
         {
@@ -110,9 +133,11 @@ namespace Kai_UI.ViewModels
                 RaisePropertyChanged(nameof(DayOfTheSchoolWeekName));
                 RaisePropertyChanged(nameof(EnableSpecialItemSelection));
                 RaisePropertyChanged(nameof(TodaysSpecialProducts));
+                RaisePropertyChanged(nameof(TotalPrice));
             }
         }
 
+        // Set to true if the user specifies a day, special items are only available on certain days
         private bool _enableSpecialItemSelection = false;
         public bool EnableSpecialItemSelection
         {
@@ -120,6 +145,7 @@ namespace Kai_UI.ViewModels
             set { SetProperty(ref _enableSpecialItemSelection, value); }
         }
 
+        // Converts index form into a name that can be displayed to the user
         public string DayOfTheSchoolWeekName
         {
             get
@@ -139,6 +165,7 @@ namespace Kai_UI.ViewModels
             }
         }
 
+        // Observable collection of products unique to the selected day
         public ObservableCollection<Product> TodaysSpecialProducts
         {
             get
@@ -166,6 +193,7 @@ namespace Kai_UI.ViewModels
             }
         }
 
+        // Observable collection of all products, indiscriminate of type, used by the view order drawer and the cart UI when displaying the order
         public ObservableCollection<Product> AllProducts
         {
             get
@@ -178,6 +206,93 @@ namespace Kai_UI.ViewModels
                 allProducts.AddRange(SpecialProducts);
 
                 return allProducts;
+            }
+        }
+
+        // Increase the number of the specified product ordered by one, always available as an option
+        private DelegateCommand<Product> _incrementOrder;
+        public DelegateCommand<Product> IncrementOrder =>
+            _incrementOrder ?? (_incrementOrder = new DelegateCommand<Product>(ExecuteIncrementOrder, CanExecuteIncrementOrder));
+
+        void ExecuteIncrementOrder(Product product)
+        {
+            product.NoOrdered++;
+            DecrementOrder.RaiseCanExecuteChanged();
+            RaisePropertyChanged(nameof(TotalPrice));
+        }
+
+        bool CanExecuteIncrementOrder(Product product)
+        {
+            return true;
+        }
+
+        // Decrease the number of the specified product ordered by one, available if applying the command won't cause a negative order
+        private DelegateCommand<Product> _decrementOrder;
+        public DelegateCommand<Product> DecrementOrder =>
+            _decrementOrder ?? (_decrementOrder = new DelegateCommand<Product>(ExecuteDecrementOrder, CanExecuteDecrementOrder));
+
+        void ExecuteDecrementOrder(Product product)
+        {
+            product.NoOrdered--;
+            DecrementOrder.RaiseCanExecuteChanged();
+            RaisePropertyChanged(nameof(TotalPrice));
+        }
+
+        bool CanExecuteDecrementOrder(Product product)
+        {
+            if (product.NoOrdered == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        // Total price of the order
+        public double TotalPrice
+        {
+            get
+            {
+                double totalPrice = 0;
+
+                foreach (Product product in AllProducts)
+                {
+                    totalPrice += product.Price * product.NoOrdered;
+                }
+                return totalPrice;
+            }
+        }
+
+        // Name of the user, bound to a textbox in the cart UI
+        private string _userName = string.Empty;
+        public string UserName
+        {
+            get { return _userName; }
+            set { SetProperty(ref _userName, value); }
+        }
+
+        // Command called by the 'submit order' button
+        private DelegateCommand _submitOrder;
+        public DelegateCommand SubmitOrder =>
+            _submitOrder ?? (_submitOrder = new DelegateCommand(ExecuteSubmitOrder, CanExecuteSubmitOrder));
+
+        void ExecuteSubmitOrder()
+        {
+
+        }
+
+        bool CanExecuteSubmitOrder()
+        {
+            // User must have entered a name and ordered something to submit an order to the canteen
+            if (UserName.Trim().Length != 0 && TotalPrice != 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 
