@@ -116,6 +116,7 @@ namespace Kai_UI.ViewModels
                 RaisePropertyChanged(nameof(EnableSpecialItemSelection));
                 RaisePropertyChanged(nameof(TodaysSpecialProducts));
                 RaisePropertyChanged(nameof(TotalPrice));
+                SubmitOrder.RaiseCanExecuteChanged();
             }
         }
 
